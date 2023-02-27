@@ -51,6 +51,9 @@ export class StableRoomIrvService extends StableRoomMates {
 
     currentLetter = String.fromCharCode((((currentLetter.charCodeAt(0) + 1) - 65 ) % 26) + 65);
     }
+
+    this.algorithmSpecificData["SR"] = true;
+
   }
 
   constructor() {  
@@ -380,7 +383,7 @@ export class StableRoomIrvService extends StableRoomMates {
       // Loop until there is a loop through people until back to the starting person
 
       let counter = 0
-      while (starting_agent != last_pref){
+      while (starting_agent != second_pref){
         // console.log("adding pairs ")  
         counter++
 
