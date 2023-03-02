@@ -135,12 +135,6 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
       }
     }
 
-    // for (let student of lecturer.ranking.reverse()){
-    //   if (project.match.includes(student)){
-    //     return student
-    //   }
-    // }
-
     return null
   }
 
@@ -165,13 +159,6 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
       }
     }
 
-    // for (let student of lecturer.ranking.reverse()){
-    //   if (assignedStudents.includes(student)){
-    //     return student
-    //   }
-    // }
-
-
     return null
   }
 
@@ -187,6 +174,7 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
 
     this.removeArrayFromArray(this.currentLines, [this.getLastCharacter(student.name), this.getLastCharacter(project.name), "red"])
     this.updateCapacityVisualization();
+    this.updateFreeList()
   }
 
   
@@ -301,8 +289,44 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
     }
   }
 
- 
-  
+  // update all the free agents each iteration 
+  updateFreeList() {
+
+    let freeAgentsList = []
+    for (let student of this.group1Agents.values()) {
+      if (!(student.match.length > 0)) {
+        freeAgentsList.push(student.name)
+      }
+    }
+    this.freeAgentsOfGroup1 = freeAgentsList
+    this.updateLecturerPreferances()
+  }
+
+
+  updateLecturerPreferances() {
+
+    // set all to black
+    for (let i = 0; i < this.algorithmSpecificData["lecturerRanking"].length ; i++){
+      for (let j = 0; j < this.algorithmSpecificData["lecturerRanking"][i].length; j++) {
+        this.algorithmSpecificData["lecturerRanking"][i][j] = "{#000000" + this.algorithmSpecificData["lecturerRanking"][i][j].slice(-2)[0] + "}"
+      }
+    }
+
+    // set matched to green
+    for (let student of this.group1Agents.values()) {
+      // if student has match 
+      if (student.match.length > 0){
+        let project = student.match[0]
+        let lecturer = this.getProjectLecturer(project)
+
+        let lectureIndex = Number(this.getLastCharacter(lecturer.name)) - 1
+        let studentIndex = this.group3Agents.get(lecturer.name).ranking.indexOf(student)
+
+        this.algorithmSpecificData["lecturerRanking"][lectureIndex][studentIndex] = "{#53D26F" + this.getLastCharacter(student.name) + "}"
+      }
+    }
+  }
+
 
   match(): AlgorithmData {
       
@@ -314,9 +338,7 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
     this.update(1);
 
     let availableStudents = this.availableStudents();
-
-    let stopPoint = 0
-
+    // let stopPoint = 0
     
     // main loop check
     while(availableStudents.length > 0){
@@ -347,6 +369,8 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
       // provisionally assign student to project
       student.match.push(preferedProject)
       preferedProject.match.push(student)
+
+      this.updateFreeList()
 
       redLine = [this.getLastCharacter(student.name), this.getLastCharacter(preferedProject.name), "red"]
       this.currentLines.push(redLine)

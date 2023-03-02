@@ -650,27 +650,17 @@ export class CanvasService {
 
   
   drawSPAlecturers() {
-    // console.log("drawSPAlecturers" , this.currentCommand["algorithmSpecificData"]["lecturerCapacity"]);
 
     this.ctx.strokeStyle = "#000000";
     this.ctx.lineWidth = 1.5;
 
     this.ctx.beginPath();
-    // this.ctx.fillStyle = "#FF6332";
-
-    // this.ctx.moveTo(this.positions["circleA"].positionX + 110, this.positions["circleA"].positionY);
-    // this.ctx.lineTo(this.positions["circleA"].positionX + 130, this.positions["circleA"].positionY);
-
-    // console.log("projects", this.currentCommand["algorithmSpecificData"]["lecturerProjects"])
-    // console.log("caps", this.currentCommand["algorithmSpecificData"]["lecturerCapacity"])
 
     let count = 0
     let text = ""
     for (let projectList of this.currentCommand["algorithmSpecificData"]["lecturerProjects"]) {
 
-      
-
-      // > 1 project 
+      // get coords
       let first = projectList[0]
       let last = projectList.slice(-1)[0]
 
@@ -682,45 +672,33 @@ export class CanvasService {
 
       let centerPos = {"positionX" : 0, "positionY" : 0}
 
+      // location on where to draw lecturer name and cap
       if (firstLetter == lastLetter){
-        // console.log("middle")
         centerPos = {"positionX" : firstPos.positionX, "positionY" : firstPos.positionY + 10}
-
       } else {
-        // console.log("subtracted", firstLetter, firstPos)
-        // console.log( lastLetter, lastPos)
         centerPos = {"positionX" : firstPos.positionX, "positionY" : ((lastPos.positionY - firstPos.positionY) / 2) + firstPos.positionY + 10}
       }
 
-
-      // console.log("Pos Test", centerPos.positionX, centerPos.positionY)
-
-      // console.log(this.positions["circleA"], this.positions["circleC"])
-      // console.log(firstPos, lastPos)
-
-      // this.ctx.beginPath()
+      // bracket lines 
       this.ctx.moveTo(firstPos.positionX + 85, firstPos.positionY - this.radiusOfCircles);
       this.ctx.lineTo(firstPos.positionX + 100, firstPos.positionY - this.radiusOfCircles);
-      // this.ctx.stroke();
 
       this.ctx.lineTo(lastPos.positionX + 100, lastPos.positionY + this.radiusOfCircles)
 
-      // this.ctx.beginPath()
       this.ctx.moveTo(lastPos.positionX + 85, lastPos.positionY + this.radiusOfCircles);
       this.ctx.lineTo(lastPos.positionX + 100, lastPos.positionY + this.radiusOfCircles);
-      // this.ctx.stroke();
 
+      // lecturer text
       text = "Lecturer" + String(count + 1) + " (" + this.currentCommand["algorithmSpecificData"]["lecturerCapacity"][count + 1] + ")"
+      this.drawText(this.ctx, text,centerPos.positionX + 120, centerPos.positionY - 20, 14)
 
+      text = String(this.currentCommand["algorithmSpecificData"]["lecturerRanking"][count])
       this.drawText(this.ctx, text,centerPos.positionX + 120, centerPos.positionY, 14)
-      
-      
+      console.log(text)
       count++
     }
 
-
     this.ctx.stroke()
-   
 
     this.ctx.strokeStyle = "#000000";
     this.ctx.lineWidth = 1;

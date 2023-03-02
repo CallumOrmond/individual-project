@@ -4,7 +4,7 @@ import { Agent } from "../interfaces/Agent";
 import { Student } from "../interfaces/Student";
 import { Project } from "../interfaces/Project";
 import { Lecturer } from "../interfaces/Lecturer";
-import { listLazyRoutes } from "@angular/compiler/src/aot/lazy_routes";
+
 
 
 export abstract class StudentProjectAllocation extends MatchingAlgorithm {
@@ -133,16 +133,28 @@ export abstract class StudentProjectAllocation extends MatchingAlgorithm {
 
 
         // Lectures - Group 3 
+        this.algorithmSpecificData["lecturerRanking"] = []
         count = 0
+        let lecturerRanking = []
         for (let lecturer of Array.from(this.group3Agents.values())) {
             let agent3Rankings = Array.from((new Map(this.group1Agents)).values());
             this.shuffle(agent3Rankings);
             this.group3Agents.get(lecturer.name).ranking = agent3Rankings;
 
             lecturer.projects = projectLists[count]
+            
+            // add lecture ranking to algorithmspecData for use in canvas display 
+            lecturerRanking = []
+            for (let student of agent3Rankings) {
+                lecturerRanking.push(this.getLastCharacter(student.name)) 
+            }
+            this.algorithmSpecificData["lecturerRanking"].push(lecturerRanking)
             count++
         }
 
+        // this.algorithmSpecificData["lecturerRanking"][1] = ["{#EB2A2A3}", "{#53D26F3}"]
+
+        console.log("this.algorithmSpecificData", this.algorithmSpecificData["lecturerRanking"])
 
         this.algorithmSpecificData["lecturerProjects"] = projectLists
 
