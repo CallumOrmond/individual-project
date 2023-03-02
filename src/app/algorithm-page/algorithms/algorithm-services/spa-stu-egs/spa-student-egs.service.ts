@@ -59,8 +59,8 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
           currentLetter = String.fromCharCode((((currentLetter.charCodeAt(0) + 1) - 65 ) % 26) + 65);
         }
 
+      // hospital capacity is placeholder name for project capacity - used so that it is displayed in canvas 
       this.algorithmSpecificData["hospitalCapacity"] = this.hospitalCapacity
-      console.log(this.hospitalCapacity)
      
 
       this.numberLectures = Math.ceil(this.numberOfGroup2Agents / 3)
@@ -273,14 +273,11 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
 
     //Projects 
     for (let project of this.group2Agents.values()) {
-      console.log("check")
       if (project.match.length == project.capacity) {
         // turn green to show full
-        console.log("full")
         this.algorithmSpecificData["hospitalCapacity"][this.getLastCharacter(project.name)] = "{#53D26F" + project.capacity + "}"
       } else if (project.match.length > project.capacity) {
         // turn red to show over full
-        console.log("over")
         this.algorithmSpecificData["hospitalCapacity"][this.getLastCharacter(project.name)] = "{#EB2A2A" + project.capacity + "}"
       } else {
         // turn black otherwise
@@ -473,10 +470,10 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
     // END - Stable matching found
     this.update(23);
 
-    console.log("--- End ---")
-    console.log(this.group1Agents)
-    console.log(this.group2Agents)
-    console.log(this.group3Agents)
+    // console.log("--- End ---")
+    // console.log(this.group1Agents)
+    // console.log(this.group2Agents)
+    // console.log(this.group3Agents)
 
     return;
   }
