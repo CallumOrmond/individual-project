@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { reverse } from 'dns';
 import { StudentProjectAllocation } from '../../abstract-classes/StudentProjectAllocation';
 import { AlgorithmData } from '../../interfaces/AlgorithmData';
 import { Lecturer } from '../../interfaces/Lecturer';

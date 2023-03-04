@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { InfoSidebarComponent } from './info-sidebar.component';
 
 describe('InfoSidebarComponent', () => {
@@ -8,7 +11,12 @@ describe('InfoSidebarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoSidebarComponent ]
+      declarations: [ InfoSidebarComponent ],
+      imports: [MatDialogModule, RouterTestingModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
   }));
