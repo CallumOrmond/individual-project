@@ -1,6 +1,6 @@
 <nav class="d-none infosidebar" [ngClass]="{'col-md-3 d-md-block': !this.showInfo}">
     <div class="infosidebar-sticky shadow-lg">
-      <div *ngIf="this.algService" class="grid-container-algorithm infotext" id="infosidebarContent">
+      <div *ngIf="this.algService.currentAlgorithm.name" class="grid-container-algorithm infotext" id="infosidebarContent">
 
         <!-- This file contains the information for all the explanations on the sidebar 
       
@@ -412,6 +412,6 @@
           </div>
         </div>
 
-        </div>
+      </div>
     </div>
 </nav>
