@@ -283,7 +283,7 @@ export class AlgorithmRetrievalService {
         equalGroups: false,
         algorithm: "Extended Gale-Shapley Stable Matching",
         service: this.SpaStudentEgsService,
-        description: "The Student Project Allocation Problem is the problem of finding a stable matching between 2 groups. In this case <b>students</b> and <b>projects</b>, there is also the added condition that projects are presented by lecturers, and each lecturer has preferances and a capacity. <br><br> This is the <b>student-oriented</b> version of the algorithm, so <b>students will propose to projects</b>. <br><br> To do this the Extended Glae-Shapley Algorithm is used. ",
+        description: "The Student Project Allocation Problem is the problem of finding a stable matching between 2 groups. In this case <b>students</b> and <b>projects</b>, there is also the added condition that projects are presented by lecturers, and each lecturer has preferences and a capacity. <br><br> This is the <b>student-oriented</b> version of the algorithm, so <b>students will propose to projects</b>. <br><br> To do this the Extended Gale-Shapley Algorithm is used. ",
         helpTextMap: { 
           
           1 : "set each student, lecturer, and project to be free and unmatched",

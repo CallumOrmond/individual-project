@@ -106,7 +106,7 @@
               <p>
                 <h4><strong>Delete Function</strong></h4>
                 This takes a woman and a man, then it removes the woman from the man's <strong>Preference Ranking</strong>, and the man
-                from the woamn's <strong>Preference Ranking</strong>
+                from the woman's <strong>Preference Ranking</strong>
               
 
               <p>
@@ -124,7 +124,7 @@
           <div>       
             <h2>Set Up</h2>
             <p>
-              The goal of the algorithm is match residents to hospitals, where each agent has an ordered preference of 
+              The goal of the algorithm is to match residents to hospitals, where each agent has an ordered preference of 
               the agents within the other group. This is done with the HR Extended Gale-Shapley Algorithm, where a stable matching 
               is guaranteed.
             </p>
@@ -185,7 +185,7 @@
           <div>       
             <h2>Set Up</h2>
             <p>
-              The goal of the algorithm is match residents to hospitals, where each agent has an ordered preference of 
+              The goal of the algorithm is to match residents to hospitals, where each agent has an ordered preference of 
               the agents within the other group. This is done with the HR Extended Gale-Shapley Algorithm, where a stable matching 
               is guaranteed.
             </p>
@@ -217,13 +217,13 @@
                 that they are not already assigned to. resident <strong>r</strong> is provisionally assigned to hospital <strong>h</strong>
                 that is not matched with a hospital, <strong>r</strong>
                 proposes to their highest-ranked hospital, if the hospital is at capacity, then
-                the least preferred resident is removed and set to be free (not matched). now <strong>r</strong> is provisanally assigned 
+                the least preferred resident is removed and set to be free (not matched). now <strong>r</strong> is provisionally assigned 
                 to the hospital.
               </p>
 
               <p>
                 If the hospital is now at capacity, then <strong>s</strong> is set to the least preferred resident out of the hospitals 
-                assigned residents, and each resident less preferred than <strong>s</strong> on the hospitals preference ranking is passed 
+                assigned residents, and each resident less preferred than <strong>s</strong> on the hospital's preference ranking is passed 
                 to the delete function along with the hospital.
                 
                 This is repeated until a stable matching is found.
@@ -285,12 +285,12 @@
 
                 Phase 2 is lines 11 - 19. This phase <strong>rotations</strong> are removed. while some preference rankings have more than
                 one ranking remaining, find a rotation in the preference rankings, and call the delete function on the pairs within the rotation.
-                If at any point a preference list is empty, then there is no stable matching. If each ranking only has 1 agent remaing this is 
+                If at any point a preference list is empty, then there is no stable matching. If each ranking only has 1 agent remaining this
                 is the stable matching.
 
               <p>
                 <h4><strong>Delete Function</strong></h4>
-                This takes a 2 people, and removes each person from the other person's preference list.
+                This takes a 2 people and removes each person from the other person's preference list.
               
               <p>
                 <h4><strong>Rotations</strong></h4>
@@ -305,7 +305,7 @@
                   <li>5 - Repeat step 2 onwards until S is the same agent as we started with, O</li>
                 </ul>
 
-                Once this is done we are left with a list of pairs, where as mentions above these pairs are passed to the delete function where 
+                Once this is done, we are left with a list of pairs, whereas mentions above these pairs are passed to the delete function where 
                 they are removed from each other's preference list.
 
               <p>
@@ -320,8 +320,8 @@
           <div>       
             <h2>Set Up</h2>
             <p>
-              The goal of the algorithm is match students to projects, where each agent has an ordered preference of 
-              the agents within the other group. Also each project has a maximum number of students that can work on it 
+              The goal of the algorithm is to match students to projects, where each agent has an ordered preference of 
+              the agents within the other group. Also, each project has a maximum number of students that can work on it 
               and a supervising lecturer, this lecturer also has a maximum number of students over all their projects
               that they can supervise.
             </p>
@@ -364,7 +364,7 @@
               <p>
                 The algorithm works by initially setting all agents to be free and unmatched. It then selects a student <strong>s</strong>, that is 
                 free and has a non-empty preference ranking. Next <strong>p</strong> is set to <strong>s</strong>'s most preferred project and <strong>l</strong>
-                is set to the lecturer that runs that project. Then <strong>s</strong> and <strong>p</strong> are provisionally assigned to each other. After this 
+                is set to the lecturer that runs that project. Then <strong>s</strong> and <strong>p</strong> are provisionally assigned to each other. After this, 
                 3 more checks are done:
               </p>
 
@@ -390,7 +390,7 @@
                 If <strong>l</strong> is at capacity, then <strong>Sw</strong> is set to the worst student assigned to <strong>p</strong> according to the 
                 lecturer that runs it. Then for each student <strong>Si</strong> that is ranked worse than <strong>Sw</strong> on the lecturers
                 ranking, the delete function is called with the pair (<strong>Si, pi</strong>), where <strong>pi</strong> is all the projects that <strong>l</strong>
-                offers and that <strong>Si</strong> finds acceptable.
+                offers, and that <strong>Si</strong> finds acceptable.
               </p>
               
               <p>   
