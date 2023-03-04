@@ -240,9 +240,9 @@ removeRuledOutPreferences(resident: Agent, hospital: Hospital): void {
 		}
 	}
 
-	console.log("Del After")
-	console.log(this.group1Agents)
-	console.log(this.group2Agents)
+	// console.log("Del After")
+	// console.log(this.group1Agents)
+	// console.log(this.group2Agents)
 
 
      
@@ -427,14 +427,14 @@ checkFreeHospitals(){
 	
 	 
 	if (counter_break > 200){
-		console.log("Done ---- Done ----")
+		// console.log("Done ---- Done ----")
 		// break;
 		}
 
-		console.log("END")
-		console.log(this.algorithmSpecificData["hospitalCapacity"])
-		console.log(this.group2Agents)
-		console.log(this.group1Agents)
+		// console.log("END")
+		// console.log(this.algorithmSpecificData["hospitalCapacity"])
+		// console.log(this.group2Agents)
+		// console.log(this.group1Agents)
 
 		
 
