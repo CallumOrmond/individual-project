@@ -29,6 +29,7 @@ export class InfoSidebarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("here", this.algorithmService.currentAlgorithm.name)
   }
 
 }

@@ -5,6 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { InfoSidebarComponent } from './info-sidebar.component';
 
+import { AlgorithmRetrievalService } from 'src/app/algorithm-retrieval.service';
+
 describe('InfoSidebarComponent', () => {
   let component: InfoSidebarComponent;
   let fixture: ComponentFixture<InfoSidebarComponent>;
@@ -15,7 +17,8 @@ describe('InfoSidebarComponent', () => {
       imports: [MatDialogModule, RouterTestingModule],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} }
+        { provide: MatDialogRef, useValue: {} },
+        { provide: AlgorithmRetrievalService}
       ]
     })
     .compileComponents();
