@@ -27,7 +27,6 @@ export class InfoSidebarComponent implements OnInit {
     public dialog: MatDialog,  // injecting the dialog component
     public router: Router,  // injecting the router service (for programmatic route navigation)
 
-    public algService: AlgorithmRetrievalService
   ) { }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 <nav class="d-none infosidebar" [ngClass]="{'col-md-3 d-md-block': !this.showInfo}">
     <div class="infosidebar-sticky shadow-lg">
-      <div *ngIf="this.algService.currentAlgorithm.name" class="grid-container-algorithm infotext" id="infosidebarContent">
+      <div *ngIf="this.algorithmService.currentAlgorithm.name" class="grid-container-algorithm infotext" id="infosidebarContent">
 
         <!-- This file contains the information for all the explanations on the sidebar 
       
@@ -12,10 +12,10 @@
             SPA
         -->
         
-        <h1 class="title center">{{ this.algService.currentAlgorithm.name }}</h1>
+        <h1 class="title center">{{ this.algorithmService.currentAlgorithm.name }}</h1>
 
         <!-- STABLE MARRIAGE  -->
-        <div *ngIf="this.algService.currentAlgorithm.id == 'smp-man-gs'">   
+        <div *ngIf="this.algorithmService.currentAlgorithm.id == 'smp-man-gs'">   
           <div>       
             <h2>Set Up</h2>
             <p>
@@ -60,7 +60,7 @@
         </div>
 
          <!-- STABLE MARRIAGE  -->
-        <div *ngIf="this.algService.currentAlgorithm.id == 'smp-man-egs'">   
+        <div *ngIf="this.algorithmService.currentAlgorithm.id == 'smp-man-egs'">   
           <div>       
             <h2>Set Up</h2>
             <p>
@@ -120,7 +120,7 @@
         </div>
 
         <!-- HR/R -->
-        <div *ngIf="this.algService.currentAlgorithm.id == 'hr-resident-egs'">   
+        <div *ngIf="this.algorithmService.currentAlgorithm.id == 'hr-resident-egs'">   
           <div>       
             <h2>Set Up</h2>
             <p>
@@ -181,7 +181,7 @@
         </div>
 
         <!-- HR/H -->
-        <div *ngIf="this.algService.currentAlgorithm.id == 'hr-hospital-egs'">   
+        <div *ngIf="this.algorithmService.currentAlgorithm.id == 'hr-hospital-egs'">   
           <div>       
             <h2>Set Up</h2>
             <p>
@@ -245,7 +245,7 @@
         </div>
 
         <!-- STABLE ROOMMATES -->
-        <div *ngIf="this.algService.currentAlgorithm.id == 'smp-room-irv'">   
+        <div *ngIf="this.algorithmService.currentAlgorithm.id == 'smp-room-irv'">   
           <div>       
             <h2>Set Up</h2>
             <p>
@@ -316,7 +316,7 @@
         </div>
 
         <!-- SPA -->
-        <div *ngIf="this.algService.currentAlgorithm.id == 'spa-stu-egs'">   
+        <div *ngIf="this.algorithmService.currentAlgorithm.id == 'spa-stu-egs'">   
           <div>       
             <h2>Set Up</h2>
             <p>
