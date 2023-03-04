@@ -204,7 +204,7 @@ export class StableRoomIrvService extends StableRoomMates {
 
   match(): AlgorithmData {
 
-    console.log(this.group1Agents)
+    // console.log(this.group1Agents)
 
 
     let free_agents: Map<String, Person> = new Map();
@@ -495,11 +495,11 @@ export class StableRoomIrvService extends StableRoomMates {
         // end - no stable matching
         this.update(18)
 
-        console.log("No Stable matching")
+        // console.log("No Stable matching")
         
         // if stable == true then regenerate 
         if (this.SRstable){
-          console.log("ReRun")
+          // console.log("ReRun")
           this.run(this.numberOfAgents, this.numberOfGroup2Agents, null, this.SRstable)
         }
 

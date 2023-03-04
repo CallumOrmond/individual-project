@@ -26,7 +26,7 @@ describe('StableRoomIrvService', () => {
     
       // let array = [2,4,6,8]
       // let agentCount: number = array[Math.floor(Math.random() * array.length)];
-      console.log(agentCount)
+      // console.log(agentCount)
       service.run(agentCount, agentCount, undefined);
       if (!service.stable) {
         stable = false;
@@ -36,7 +36,7 @@ describe('StableRoomIrvService', () => {
     }
 
     expect(stable).toBeTrue();
-    console.log("SR Tests Done")
+    // console.log("SR Tests Done")
   })
 
 });
