@@ -326,6 +326,18 @@ Coding, Finished SR
 ### 1st Mar 
 (8Hr) - SPA Viz, Dis, SPA Preferance Input
 
+### 2nd Mar 
+(6Hr) - Final Code Fixes, Fix Button, Meeting 
+
+### 3rd Mar 
+(2Hr) - Made Goodle Forms 
+
+### 4th Mar 
+(5Hr) - More Final code changes, test fixing, deployment
+
+### 5th Mar
+() - 
+
 
 <hr>
 
