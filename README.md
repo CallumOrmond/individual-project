@@ -4,4 +4,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Wiki
 
+More information can be found in the Wiki
+
 
