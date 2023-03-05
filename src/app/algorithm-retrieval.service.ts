@@ -5,6 +5,7 @@ import { EgsStableMarriageService } from './algorithm-page/algorithms/algorithm-
 import { GsStableMarriageService } from './algorithm-page/algorithms/algorithm-services/smp-man-gs/gs-stable-marriage.service';
 import { StableRoomIrvService } from './algorithm-page/algorithms/algorithm-services/smp-room-irv/stable-room-irv.service';
 import { HrHospitalEgsService } from './algorithm-page/algorithms/algorithm-services/hr-hospital-egs/hr-hospital-egs.service';
+import { SpaStudentEgsService } from './algorithm-page/algorithms/algorithm-services/spa-stu-egs/spa-student-egs.service';
 
 
 // ------------------------------------------------------- ALGORITHM TEMPLATE
@@ -74,6 +75,8 @@ export class AlgorithmRetrievalService {
         ]
       }
     ],
+
+
 
     [
       "smp-man-egs", {
@@ -158,14 +161,51 @@ export class AlgorithmRetrievalService {
     // ADD NEW ALGORITHMS UNDER HERE
 
     [
+      "hr-hospital-egs", {
+        id: "hr-hospital-egs",
+        name: "Hospitals/Residents Problem",
+        orientation: ["Hospital", "Resident"],
+        equalGroups: false,
+        algorithm: "Extended Gale-Shapley Stable Matching",
+        service: this.HrHospitalEgsService,
+        description: "The Hospitals/Residents Problem is the problem of finding a stable matching between a set of <b>hospitals and residents</b>, where a hospital can take multiple residents.<br><br>This is the <b>hospital-oriented</b> version of the algorithm, so <b>hospitals will propose to residents</b>.<br><br>To do this, the Extended Gale-Shapley Stable Marriage algorithm is used.",
+        helpTextMap: {
+          1 : "Set all hospitals and residents to be completely free",
+          2 : "While some hospital (%hospital%) is undersubscribed and has a resident on their preferance list that is not assigned to them",
+          3 : "Set r to %resident% from hospital's preferance list",
+          4 : "If %resident% is assigned to another hospital, unassign them from each other",
+          5 : "Unassign %resident% and %oldHospital% from each other",
+          6 : "Assign %resident% and %hospital% to each other",
+          7 : "For each hospital h' after %hospital% on %resident%'s preferance list, remove them from each others preferance list",
+          8 : "remove %resident% from %hospital%'s preferance list and %hospital% from %resident%'s preferance list",
+          9 : "Stable matching is found",
+
+          
+        },
+        code: [
+          "Set each hospital and resident to be completely free",
+          "While some hospital h is undersubscibed, and has a resident on their preferance list",
+          "\t r := first resident on h's prefernace list not assigned to h",
+          "\t if r is assigned to another hospital h'",
+          "\t\t unassign r and h'",
+          
+          "\t provisionally assign r to h",
+          "\t for each successor h' of h on r's list",
+          "\t\t remove h' and r from each others preferance list",
+          "stable matching is found "
+        ]
+      }
+    ],
+
+    [
       "smp-room-irv", {
         id: "smp-room-irv",
         name: "Stable Roommates Problem",
-        orientation: ["Person"],
+        orientation: ["Person", "Person"],
         equalGroups: true,
-        algorithm: "Stable Roommates Problem",
+        algorithm: "Irving's Algorithm",
         service: this.StableRoomIrvService,
-        description: "Match Roommates",
+        description: "The stable roommates problem is the problem of finding a stable matching between 1 group of elements. In this case <b>people</b>.<br> <br>To do this the Irving’s algorithm is used",
         helpTextMap: {
           1: "Set all people to be free",
           2 : "While some person %person% has not been assigned to a anyone and has a non-empty preferance list",
@@ -182,7 +222,7 @@ export class AlgorithmRetrievalService {
           10 : "remove %removee% from %person%\'s preferance list and remove %person% from %removee%\'s preferance list",
 
           11 : "While some person %person% has more then 1 person left in their preferance list - %list%",
-          12 : "look for rotations within %person%\'s preferance list, that is {rotation explanation}",
+          12 : "look for rotations within %person%\'s preferance list, that is a cycle of ordered pairs through preferance lists",
           13 : "if a rotation is found", //%rotation%
           14 : "delete pairs in rotation - remove %removee% from %person%\'s preferance list and remove %person% from %removee%\'s preferance list",
 
@@ -207,7 +247,7 @@ export class AlgorithmRetrievalService {
           "\t if any person a is assigned to person b",
           "\t\t free a",
 
-          "\t for each person c less preferded than p on b's, preferance list",
+          "\t for each person c less preferded than p on b's preferance list",
           "\t\t remove c from p's list and remove p from c's list",
           // 10 lines so far 
 
@@ -233,48 +273,79 @@ export class AlgorithmRetrievalService {
       }
     ],
 
-    
+    // SPA
+
     [
-      "hr-hospital-egs", {
-        id: "hr-hospital-egs",
-        name: "Hospitals/Residents Problem",
-        orientation: ["Resident", "Hospital"],
+      "spa-stu-egs", {
+        id: "spa-stu-egs",
+        name: "Student Project Allocation",
+        orientation: ["Student", "Project"],
         equalGroups: false,
         algorithm: "Extended Gale-Shapley Stable Matching",
-        service: this.HrHospitalEgsService,
-        description: "/", //"The Hospitals/Residents Problem is the problem of finding a stable matching between a set of <b>hospitals and residents</b>, where a hospital can take multiple residents.<br><br>This is the <b>resident-oriented</b> version of the algorithm, so <b>residents will propose to hospitals</b>.<br><br>To do this, the Extended Gale-Shapley Stable Marriage algorithm is used.",
-        helpTextMap: {
-          1 : "Set all hospitals and residents to be completely free",
-          2 : "While some hospital (%hospital%) is undersubscribed and has a resident on their preferance list that is not assigned to them",
-          3 : "Set r to %resident% from hospital's preferance list",
-          4 : "If %resident% is assigned to another hospital, unassign them from each other",
-          5 : "Unassign %resident% and %oldHospital% from each other",
-          6 : "Assign %resident% and %hospital% to each other",
-          7 : "For each resident r' after %resident% on %hospital%'s preferance list, remove them from each others preferance list",
-          8 : "remove %resident% from %hospital%'s preferance list and %hospital% from %resident%'s preferance list",
-          9 : "Stable matching is found",
-
+        service: this.SpaStudentEgsService,
+        description: "The Student Project Allocation Problem is the problem of finding a stable matching between 2 groups. In this case <b>students</b> and <b>projects</b>, there is also the added condition that projects are presented by lecturers, and each lecturer has preferences and a capacity. <br><br> This is the <b>student-oriented</b> version of the algorithm, so <b>students will propose to projects</b>. <br><br> To do this the Extended Gale-Shapley Algorithm is used. ",
+        helpTextMap: { 
           
+          1 : "set each student, lecturer, and project to be free and unmatched",
+          2 : "While some student %student% is free and has a non-empty preferance list",
+          3 : "%project% is selected as %student%'s most prefered project",
+          4 : "The lecturer %lecturer% offers that project",
+          5 : "The project %project% and the student %student% are assigned to each other",
+          6 : "If the project %project% is over-subscribed",
+          7 : "The worst (least preferable) student assigned to project %project% is %student%",
+          8 : "The provisional assigment between %project% and %student% is broken",
+          9 : "Else if the lecturer %lecturer% is over-subscribed",
+          10 : "The worst (least preferable) student assigned to the lecturer %lecturer% is %student%",
+          11 : "The project that %student% is assigned to is %project%",
+          12 : "The provisional assigment between %project% and %student% is broken",
+
+          13 : "If the project %project% is at capacity",
+          14 : "The worst (least preferable) student assigned to project %project% is %student%",
+          15 : "For each student less preferable that %student% on the %lecturer%'s prefernce list",
+          16 : "If the student %student% has the project %project% on their preferance list",
+          17 : "Remove %project% from %student%'s preference list",
+
+          18 : "If the lecturer %lecturer% is at capacity",
+          19 : "The worst (least preferable) student assigned to a project %project% run by %lecturer% is %student%",
+          20 : "For each student less preferable that %student% on the %lecturer%'s prefernce list",
+          21 : "For each project that %lecturer% offers",
+          22 : "Remove %project% from %student%'s preferance list",
+
+          23 : "Stable matching is found ",
+      
         },
-        code: [
-          "Set each hospital and resident to be completely free",
-          "While some hospital h is undersubscibed, and has a resident on their preferance list",
-          "\t r := first resident on h's prefernace list not assigned to h",
-          "\t if r is assigned to another hospital h'",
-          "\t\t unassign r and h'",
-          
-          "\t provisionally assign r to h",
-          "\t for each successor r' of r on h's list",
-          "\t\t remove r' and h from each others preferance list",
-          "stable matching is found "
-          
-         
-        ]
+        code: [ 
+          "set each student, lecturer, and project to be free",
+          "while some student s is free:",
+          "\t p = next most prefered project on s's list",
+          "\t l = lecturer who offers p",
+          "\t provisionally assign s to p",
+          "\t if p is over-subscribed:",
+          "\t\t Sw = worst student assigned to p",
+          "\t\t break provisional assignment between Sw and P",
+          "\t else if l is over-subscribed:",
+          "\t\t Sw = worst student assigned to l",
+          "\t\t Pw = project that Sw is assigned to",
+          "\t\t break provisional assignment between Sw and Pw",
 
-    
+          "\t if p is full:",
+          "\t\t Sw = worst student assigned to p",
+          "\t\t for each student S_i less prefered than Sw on l's preference list:",
+          "\t\t\t if S_i finds project p acceptable:",
+          "\t\t\t\t remove p from S_i's preference list",
+
+          "\t if l is full:",
+          "\t\t Sw = worst student assigned to l",
+          "\t\t for each student S_i less prefered than Sw on l's preference list:",
+          "\t\t\t for each project P_i that l offers:",
+          "\t\t\t\t remove P_i from S_i's preference list",
+
+          "Stable matching is found"
+          // 23 lines 
+        ]
       }
     ],
-
+   
 
   ]);
 
@@ -283,7 +354,11 @@ export class AlgorithmRetrievalService {
     ["Woman", "Women"],
     ["Resident", "Residents"],
     ["Hospital", "Hospitals"],
+
     ["Person", "People"],
+    ["Student", "Students"],
+    ["Project", "Projects"],
+    ["Lecturer", "Lectures"],
 
   ]);
 
@@ -293,6 +368,7 @@ export class AlgorithmRetrievalService {
     public HrResidentEgsService: HrResidentEgsService,
     public StableRoomIrvService: StableRoomIrvService,
     public HrHospitalEgsService: HrHospitalEgsService,
+    public SpaStudentEgsService: SpaStudentEgsService,
   ) { }
 
   getListOfAlgorithms(): Array<Algorithm> {

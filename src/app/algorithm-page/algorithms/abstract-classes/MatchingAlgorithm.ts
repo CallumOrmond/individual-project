@@ -21,6 +21,8 @@ export abstract class MatchingAlgorithm {
         descriptions: new Array()
     };
 
+    SRstable: boolean = true
+
     currentLine: Array<string> = [];
 
     originalGroup1CurrentPreferences: Map<String, Array<String>> = new Map();
@@ -65,6 +67,8 @@ export abstract class MatchingAlgorithm {
         this.numberOfGroup2Agents = numberOfGroup2Agents;
 
         this.stable = false;
+
+        
     }
 
     generateAgents() {
@@ -117,7 +121,7 @@ export abstract class MatchingAlgorithm {
     }
 
     populatePreferences(preferences: Map<String, Array<String>>): void {
-        // console.log(preferences);
+        // console.log("preferences", preferences);
         let tempCopyList: Agent[];
 
         for (let agent of Array.from(this.group1Agents.keys())) {
@@ -164,7 +168,6 @@ export abstract class MatchingAlgorithm {
 
         for (let agent of Array.from(agents.values())) {
             let preferenceList = [];
-            
             for (let match of agent.ranking) {
                 preferenceList.push(match.name.slice(match.name.length - 1));
             }
@@ -234,7 +237,7 @@ export abstract class MatchingAlgorithm {
 
     }
 
-    // 
+
     findPositionInMatches(currentAgent: Agent, agentToFind: Agent): number {
         let position: number = currentAgent.ranking.findIndex((agent: { name: string; }) => agent.name == agentToFind.name);
         return position;
@@ -242,9 +245,23 @@ export abstract class MatchingAlgorithm {
 
     findPositionInOriginalMatches(currentAgent: Agent, agentToFind: Agent) {
         let originalPreferences = this.originalGroup1CurrentPreferences.get(currentAgent.name[currentAgent.name.length - 1]);
+        // console.log("Group1", originalPreferences)
         let position: number = originalPreferences.indexOf(agentToFind.name[agentToFind.name.length - 1]);
         return position;
     }
+
+    findPositionInOriginalMatchesGroup2(currentAgent: Agent, agentToFind: Agent) {
+        let originalPreferences = this.originalGroup2CurrentPreferences.get(currentAgent.name[currentAgent.name.length - 1]);
+        // console.log("Group2", originalPreferences)
+        let position: number = originalPreferences.indexOf(agentToFind.name[agentToFind.name.length - 1]);
+        return position;
+    }
+
+    // findPositionInOriginalMatches(currentAgent: Agent, agentToFind: Agent) {
+    //     let originalPreferences = this.originalGroup1CurrentPreferences.get(currentAgent.name[currentAgent.name.length - 1]);
+    //     console.log("originalPreferences", originalPreferences)
+    //     return 0
+    // }
 
     getLastCharacter(name: string) {
         return name.slice(name.length - 1);
@@ -299,7 +316,7 @@ export abstract class MatchingAlgorithm {
 
         let currentAgent: string = "";
 
-        console.log("inner", preferenceList, preferenceList.get(person), preferenceList.get(person)[position], person, position, style)
+        // console.log("inner", preferenceList, preferenceList.get(person), preferenceList.get(person)[position], person, position, style)
 
         if (preferenceList.get(person)[position].includes("#")) {
         currentAgent = preferenceList.get(person)[position].charAt(preferenceList.get(person)[position].length - 2);
@@ -370,7 +387,7 @@ export abstract class MatchingAlgorithm {
 
     abstract match(): AlgorithmData;
 
-    run(numberOfAgents: number, numberOfGroup2Agents: number = numberOfAgents, preferences: Map<String, Array<String>>): AlgorithmData {
+    run(numberOfAgents: number, numberOfGroup2Agents: number = numberOfAgents, preferences: Map<String, Array<String>>, SRstable: boolean = true): AlgorithmData {
         if (numberOfGroup2Agents != numberOfAgents) {
             this.initialise(numberOfAgents, numberOfGroup2Agents);
         } else {
@@ -380,7 +397,13 @@ export abstract class MatchingAlgorithm {
         if (numberOfGroup2Agents == 0){
             console.log("0 agents in group 2");
         }
-        
+                
+        if (SRstable) {
+            this.SRstable = true
+        } else {
+            this.SRstable = false
+        }
+
         this.generateAgents();
 
         if (preferences) {
@@ -388,6 +411,9 @@ export abstract class MatchingAlgorithm {
         } else {
             this.generatePreferences();
         }
+
+
+       
 
         this.group1CurrentPreferences = this.getGroupRankings(this.group1Agents);
         this.originalGroup1CurrentPreferences = this.getGroupRankings(this.group1Agents);

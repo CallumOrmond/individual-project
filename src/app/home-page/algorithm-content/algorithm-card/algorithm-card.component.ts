@@ -29,7 +29,7 @@ export class AlgorithmCardComponent implements OnInit {
   numberOfGroup1Agents = new FormControl('', [
     Validators.required,
     Validators.min(1),
-    Validators.max(9)
+    Validators.max(9),
   ]);
 
   numberOfGroup2Agents = new FormControl('', [
@@ -37,6 +37,20 @@ export class AlgorithmCardComponent implements OnInit {
     Validators.min(1),
     Validators.max(9)
   ]);
+
+
+  evenOnly(event): boolean {
+
+    if (event.key == "enter"){
+      return true
+    }
+  
+    if (["2", "4", "6", "8", "1", "0"].includes(event.key)) {
+      return true
+    }
+
+    return false
+  }
 
   // matcher = new MyErrorStateMatcher();
 

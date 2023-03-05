@@ -67,7 +67,7 @@ describe('workspace-project App', () => {
   it('about link works', () => {
     page.navigateTo();
     element(by.id('aboutLink')).click();
-    element(by.cssContainingText('h1', 'Hi')).click();
+    element(by.cssContainingText('h1', 'Welcome')).click();
   });
 
   it('algorithms link works', () => {

@@ -78,6 +78,8 @@ export class AlgorithmPageComponent implements OnInit {
   showCode: boolean = false;
   dialogOpen: boolean = false;
 
+  showInfo: boolean = false
+
   tutorialStep: number;
 
   duringAnimation: boolean = false;
@@ -85,6 +87,10 @@ export class AlgorithmPageComponent implements OnInit {
   firstSelection: boolean = true
   algorithm = new FormControl('');
   numPeople: number;
+
+  // where SR is going to generate a stable matching or a unstable matching
+  SRstable: boolean = true;
+  SRstableText: string = "Generating Stable Matchings"
 
 
   // --------------------------------------------------------------------------------- | INIT FUNCTIONS
@@ -222,14 +228,25 @@ export class AlgorithmPageComponent implements OnInit {
     a.style.backgroundColor = "";
     a.style.color = "";
 
+
     // animates changing of preferences (fade in/out)
     this.animation.fadeCanvasOut();
     await this.utils.delay(300);
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 1; i++) {
       // let agent1Count: number = Math.floor(Math.random() * (9 - 2) + 2);
       // let agent2Count: number = Math.floor(Math.random() * (9 - 2) + 2);
       // this.playback.setAlgorithm(this.algorithmService.currentAlgorithm.id, agent1Count, agent2Count);
-      this.playback.setAlgorithm(this.algorithmService.currentAlgorithm.id, this.algorithmService.numberOfGroup1Agents, this.algorithmService.numberOfGroup2Agents);
+
+      console.log(this.algorithmService.currentAlgorithm.name)
+
+      if (this.algorithmService.currentAlgorithm.name == "Stable Roommates Problem") {
+        console.log("yes", this.SRstable)
+        this.playback.setAlgorithm(this.algorithmService.currentAlgorithm.id, this.algorithmService.numberOfGroup1Agents, this.algorithmService.numberOfGroup2Agents, null, this.SRstable);
+
+      } else {
+        this.playback.setAlgorithm(this.algorithmService.currentAlgorithm.id, this.algorithmService.numberOfGroup1Agents, this.algorithmService.numberOfGroup2Agents);
+      }
+
     }
     this.animation.fadeCanvasIn();
   }
@@ -277,6 +294,69 @@ export class AlgorithmPageComponent implements OnInit {
 
     this.duringAnimation = false;
 
+    console.log("current pannels", this.showInfo, this.showCode)
+
+
+  }
+
+
+// function run when toggle sidebar button clicked (top left)
+async toggleInfoSidebar(): Promise<void> {
+
+  this.duringAnimation = true;
+
+  let mainContent = document.getElementById("mainContent");
+
+  if (!this.showInfo) {
+
+    // hide sidebar and content
+    this.animation.hideInfoSidebar();
+    this.animation.hideMainContent();
+
+    await this.utils.delay(700);
+
+    // show sidebar and content
+    mainContent.style.position = "";
+    this.animation.showMainContent();
+    this.showInfo = !this.showInfo
+
+  } else {
+
+    // hide content
+    this.animation.hideMainContent();
+
+    await this.utils.delay(400);
+
+    // show sidebar
+    this.showInfo = !this.showInfo
+    this.animation.showInfoSidebar();
+
+    await this.utils.delay(200);
+
+    // show content
+    this.animation.showMainContent();
+
+  }
+
+  await this.utils.delay(200);
+
+  this.duringAnimation = false;
+
+  console.log("current pannels", this.showInfo, this.showCode)
+
+}
+  ChangeStableSR(): void {
+    
+    if (this.SRstable == true) {
+      this.SRstable = false
+      this.SRstableText = "Generating Unstable Matchings"
+    } else {
+      this.SRstable = true
+      this.SRstableText = "Generating Stable Matchings"
+
+    }
+
+    console.log("New SR setting", this.SRstable)
   }
 
 

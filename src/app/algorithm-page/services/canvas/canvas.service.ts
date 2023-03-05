@@ -1,6 +1,7 @@
 import { ElementRef, ViewChild } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { AlgorithmRetrievalService } from '../../../algorithm-retrieval.service';
+import { SidebarComponent } from '../../sidebar/sidebar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -92,15 +93,27 @@ export class CanvasService {
     }
 
     let effectiveHeight: number = canvas.height - (canvas.height * this.yMargin);
+    let effectiveWidth: number = canvas.width - (canvas.width * this.xMargin) 
     let spaceBetweenCircles: number = (effectiveHeight / this.algService.numberOfGroup1Agents) + LHSHeightOffset;
     
     let canvasMiddle: number = (effectiveHeight / 2) + 40;
-
+    
+    // center points of the canvas for SR circles 
+    let centerX = (effectiveWidth / 2) + (canvas.width * 0.15)
+    let centerY = (effectiveHeight / 2)
+    
     // console.log(canvasMiddle);
 
     this.positions = {}
 
+    // canvas Middle 
+    this.positions["middleX"] = centerX
+    this.positions["middleY"] = centerY
+
+
+
     // LHS Positions
+
 
     if (this.algService.numberOfGroup1Agents % 2 == 1) {
 
@@ -175,6 +188,7 @@ export class CanvasService {
     spaceBetweenCircles = (effectiveHeight / this.algService.numberOfGroup2Agents) + RHSHeightOffset;
 
     // console.log(this.algService.numberOfGroup2Agents);
+    // RHS Circles 
 
     if (this.algService.numberOfGroup2Agents % 2 == 1) {
 
@@ -245,7 +259,78 @@ export class CanvasService {
     }
   }
 
+  calculateEqualDistance1Group() {
+    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myCanvas");
+
+    let LHSHeightOffset = 0;
+    let RHSHeightOffset = 0;
+
+    if (this.algService.numberOfGroup1Agents == 8) {
+      LHSHeightOffset = 8;
+      this.radiusOfCircles = 27;
+    } else if (this.algService.numberOfGroup1Agents == 9) {
+      LHSHeightOffset = 6;
+      this.radiusOfCircles = 21;
+    } else {
+      LHSHeightOffset = 0;
+      this.radiusOfCircles = 30;
+    }
+
+    if (this.algService.numberOfGroup2Agents == 8) {
+      RHSHeightOffset = 8;
+      this.radiusOfCircles = 27;
+    } else if (this.algService.numberOfGroup2Agents == 9) {
+      RHSHeightOffset = 6;
+      this.radiusOfCircles = 21;
+    } else {
+      RHSHeightOffset = 0;
+      this.radiusOfCircles = 30;
+    }
+
+    let effectiveHeight: number = canvas.height - (canvas.height * this.yMargin);
+    let effectiveWidth: number = canvas.width - (canvas.width * this.xMargin) 
+
+    let spaceBetweenCircles: number = (effectiveHeight / this.algService.numberOfGroup1Agents) + LHSHeightOffset;
+
+    
+    // center points of the canvas for SR circles 
+    let centerX = (effectiveWidth / 2) + (canvas.width * 0.15)
+    let centerY = (effectiveHeight / 2)
+    
+    // console.log(canvasMiddle);
+
+    this.positions = {}
+
+    // canvas Middle 
+    this.positions["middleX"] = centerX
+    this.positions["middleY"] = centerY
+
+    // positions 
+
+    let number = this.algService.numberOfGroup1Agents;
+
+    let angle = ((Math.PI * 2) / number) ;
+    let r = 200;
+
+    // number to rotated the circle, so that numbering looks more natural 
+    let offset = 3; 
+
+
+    // Draw LHS circles in orange
+    for (let i = 2; i < this.algService.numberOfGroup1Agents + 2; i++) {
+      
+      this.positions["circle" + (i - 1) ] = {
+        positionX: r * Math.cos(angle * i) + centerX,
+        positionY: r * Math.sin(angle * i) + centerY
+      }
+      
+    }
+
+  }
+
   drawLHSCircles() {
+
+    // console.log("LHS draw positions", this.positions)
 
     this.ctx.beginPath();
     this.ctx.fillStyle = "#FF6332";
@@ -313,6 +398,132 @@ export class CanvasService {
     }
   }
 
+  drawCircles1Group() {
+
+    this.ctx.beginPath();
+    this.ctx.fillStyle = "#FF6332";
+
+
+    // number to rotated the circle, so that numbering looks more natural 
+    let offset = 1;
+    // Draw LHS circles in orange
+    for (let i = 1; i < this.algService.numberOfGroup1Agents + 1; i++) {
+
+      let posX: number = this.positions["circle" + i].positionX;
+      let posY: number = this.positions["circle" + i].positionY;
+
+      this.ctx.moveTo(posX + this.radiusOfCircles, posY);
+      this.ctx.arc(posX, posY, this.radiusOfCircles, 0, Math.PI * 2, true)
+
+    }
+
+
+    // colours circles 
+    this.ctx.fill();
+    this.ctx.stroke();
+
+
+    for (let i = offset; i < this.algService.numberOfGroup1Agents + offset; i++) {
+      let posX: number = this.positions["circle" + i].positionX;
+      let posY: number = this.positions["circle" + i].positionY;
+
+      this.ctx.fillStyle = "black";
+      this.ctx.font = this.radiusOfCircles + 'px Arial';
+
+      this.ctx.fillText(String(i - offset + 1), posX - 8, posY + 10, 20);
+
+    }
+ 
+  }
+
+
+  drawLine1Group(line: Array<string>): void {
+
+    let color: string = line[2];
+
+    if (color == "red") {
+      this.ctx.strokeStyle = "#EB2A2A";
+    } else if (color == "green") {
+      this.ctx.strokeStyle = "#53D26F";
+    }
+
+    this.ctx.lineWidth = 3;
+
+    
+    let xLen = (this.positions["circle" + line[1]].positionX) - (this.positions["circle" + line[0]].positionX)
+    let yLen = (this.positions["circle" + line[1]].positionY) - (this.positions["circle" + line[0]].positionY)
+
+
+    // halfX = this.positions["circle" + line[0]].positionX + (xLen * (1 - Math.abs(this.radiusOfCircles / yLen)))
+    // halfY = this.positions["circle" + line[0]].positionY + (yLen * (1 - Math.abs(this.radiusOfCircles / yLen))) 
+
+    let halfX = this.positions["circle" + line[0]].positionX + (xLen * 0.8)
+    let halfY = this.positions["circle" + line[0]].positionY + (yLen * 0.8) 
+
+
+
+    let angle = Math.atan(yLen / xLen)
+
+  
+    let newX = 0
+    let newY = 0
+
+    let right = false;
+
+    // if starting < ending - pointing right- canvas in bottum right quadrent
+    if (this.positions["circle" + line[0]].positionX < this.positions["circle" + line[1]].positionX) {
+      right = true
+    } else {
+      right = false
+    }
+
+    // draw arrow 
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.positions["circle" + line[0]].positionX, this.positions["circle" + line[0]].positionY);
+    
+
+    if (color != "green") {
+
+      this.ctx.lineTo(halfX, halfY);
+    
+      if (right) {
+
+        newX = halfX + 20 * Math.cos(angle + (3 * Math.PI / 4))
+        newY = halfY + 20 * Math.sin(angle + (3 * Math.PI / 4))
+
+      } else {
+
+        newX = halfX + 20 * Math.cos(angle + (Math.PI / 4))
+        newY = halfY + 20 * Math.sin(angle + (Math.PI / 4))
+      }
+
+      this.ctx.lineTo(newX, newY)
+      this.ctx.lineTo(halfX, halfY);
+
+
+      if (right) {
+
+        newX = halfX + 20 * Math.cos(angle - (3 * Math.PI / 4))
+        newY = halfY + 20 * Math.sin(angle - (3 * Math.PI / 4))
+
+      } else {
+
+        newX = halfX + 20 * Math.cos(angle - (Math.PI / 4))
+        newY = halfY + 20 * Math.sin(angle - (Math.PI / 4))
+      }
+
+      this.ctx.lineTo(newX, newY)
+
+    } else {
+      this.ctx.lineTo(this.positions["circle" + line[1]].positionX, this.positions["circle" + line[1]].positionY);
+    }
+    
+    this.ctx.stroke();
+
+    this.ctx.strokeStyle = "#000000";
+    this.ctx.lineWidth = 1;
+
+  }
 
   drawLine(line: Array<string>): void {
 
@@ -352,6 +563,8 @@ export class CanvasService {
       this.drawText(this.ctx, group1PreferenceList[i-1].join(", "), this.positions["circle" + i].positionX - this.lineSizes.get(String(i)) * 2 - 65, this.positions["circle" + i].positionY + 7, this.fontSize);
     }
 
+    // only draw group2 if it is not SR
+    
     let group2PreferenceList: Array<Array<string>> = Object.values(this.currentCommand["group2CurrentPreferences"]);
     let currentLetter = 'A';
 
@@ -363,6 +576,35 @@ export class CanvasService {
       this.drawText(this.ctx, group2PreferenceList[i-1].join(", "), this.positions["circle" + currentLetter].positionX + (this.currentCommand["algorithmSpecificData"]["hospitalCapacity"] ? 115 : 65), this.positions["circle" + currentLetter].positionY + 7, this.fontSize);
       currentLetter = String.fromCharCode((((currentLetter.charCodeAt(0) + 1) - 65 ) % 26) + 65);
     }
+    
+  }
+
+  drawAllPreferences1Group() {
+
+    this.ctx.font = this.fontSize + 'px Arial';
+
+    let group1PreferenceList: Array<Array<string>> = Object.values(this.currentCommand["group1CurrentPreferences"]);
+
+    if (group1PreferenceList.length <= 0) {
+      group1PreferenceList = Array.from(this.currentCommand["group1CurrentPreferences"].values());
+    }
+
+    let num = this.algService.numberOfGroup1Agents
+
+    for (let i = 1; i < num / 2 + 1; i++) {
+      this.drawText(this.ctx, 
+      group1PreferenceList[i-1].join(", "),
+      this.positions["circle" + i].positionX - (this.lineSizes.get(String(i)) * 2) - 65,
+      this.positions["circle" + i].positionY + 7, this.fontSize);
+    }
+
+    for (let i = (num / 2) + 1; i < num + 1; i++) {
+      this.drawText(this.ctx, 
+      group1PreferenceList[i-1].join(", "),
+      this.positions["circle" + i].positionX + 65,
+      this.positions["circle" + i].positionY + 7, this.fontSize);
+    }
+
   }
 
   drawRelevantPreferences() {
@@ -399,10 +641,67 @@ export class CanvasService {
 
       let currentCapacity: number = hospitalCapacityMap[currentLetter];
 
-      this.drawText(this.ctx, "(" + String(currentCapacity) + ")", this.positions["circle" + currentLetter].positionX + 60, this.positions["circle" + currentLetter].positionY + 7, this.fontSize);
+      this.drawText(this.ctx, "(" + String(currentCapacity) + ")", this.positions["circle" + currentLetter].positionX + 45, this.positions["circle" + currentLetter].positionY + 7, this.fontSize);
       // this.ctx.fillText(group2PreferenceList[i-1].join(", "), this.positions["circle" + currentLetter].positionX + 65, this.positions["circle" + currentLetter].positionY + 7);
       currentLetter = String.fromCharCode((((currentLetter.charCodeAt(0) + 1) - 65 ) % 26) + 65);
     }
+
+  }
+
+  
+  drawSPAlecturers() {
+
+    this.ctx.strokeStyle = "#000000";
+    this.ctx.lineWidth = 1.5;
+
+    this.ctx.beginPath();
+
+    let count = 0
+    let text = ""
+    for (let projectList of this.currentCommand["algorithmSpecificData"]["lecturerProjects"]) {
+
+      // get coords
+      let first = projectList[0]
+      let last = projectList.slice(-1)[0]
+
+      let firstLetter = first.slice(-1)[0]
+      let lastLetter = last.slice(-1)[0]
+
+      let firstPos = this.positions["circle" + String(firstLetter)]
+      let lastPos = this.positions["circle" + String(lastLetter)]
+
+      let centerPos = {"positionX" : 0, "positionY" : 0}
+
+      // location on where to draw lecturer name and cap
+      if (firstLetter == lastLetter){
+        centerPos = {"positionX" : firstPos.positionX, "positionY" : firstPos.positionY + 10}
+      } else {
+        centerPos = {"positionX" : firstPos.positionX, "positionY" : ((lastPos.positionY - firstPos.positionY) / 2) + firstPos.positionY + 10}
+      }
+
+      // bracket lines 
+      this.ctx.moveTo(firstPos.positionX + 85, firstPos.positionY - this.radiusOfCircles);
+      this.ctx.lineTo(firstPos.positionX + 100, firstPos.positionY - this.radiusOfCircles);
+
+      this.ctx.lineTo(lastPos.positionX + 100, lastPos.positionY + this.radiusOfCircles)
+
+      this.ctx.moveTo(lastPos.positionX + 85, lastPos.positionY + this.radiusOfCircles);
+      this.ctx.lineTo(lastPos.positionX + 100, lastPos.positionY + this.radiusOfCircles);
+
+      // lecturer text
+      text = "Lecturer" + String(count + 1) + " (" + this.currentCommand["algorithmSpecificData"]["lecturerCapacity"][count + 1] + ")"
+      this.drawText(this.ctx, text,centerPos.positionX + 120, centerPos.positionY - 20, 14)
+
+      text = String(this.currentCommand["algorithmSpecificData"]["lecturerRanking"][count])
+      this.drawText(this.ctx, text,centerPos.positionX + 120, centerPos.positionY, 14)
+      console.log(text)
+      count++
+    }
+
+    this.ctx.stroke()
+
+    this.ctx.strokeStyle = "#000000";
+    this.ctx.lineWidth = 1;
 
   }
 
@@ -551,7 +850,6 @@ export class CanvasService {
   }
 
 
-
   redrawCanvas(command?: Object): void {
 
     if (command) {
@@ -576,31 +874,66 @@ export class CanvasService {
     }
 
     this.setFont();
-
-    // update positions of all canvas elements
-    this.calculateEqualDistance();
-
-    // draw lines between circles (matches and relations)
-    for (let line of this.currentCommand["currentLines"]) {
-      this.drawLine(line);
-    }
+   
     // this.drawLineBetween("circle1", "circleE", "red")
     // this.drawLineBetween("circle1", "circleB");
 
     // draw circles
-    this.drawLHSCircles();
-    this.drawRHSCircles();
+
+    // if SR Algorithm
+    if (this.currentCommand["algorithmSpecificData"]["SR"]) {
+
+      // draw lines between circles (matches and relations)
+      for (let line of this.currentCommand["currentLines"]) {
+        this.drawLine1Group(line);
+      }
+
+      // update positions of all canvas elements
+      this.calculateEqualDistance1Group();
+      this.drawCircles1Group();
+
+    } else {
+
+      // draw lines between circles (matches and relations)
+      for (let line of this.currentCommand["currentLines"]) {
+        this.drawLine(line);
+      }
+
+      // update positions of all canvas elements
+      this.calculateEqualDistance();
+
+      this.drawLHSCircles();
+      this.drawRHSCircles();
+    }
+    
+    // draw project lecturer Viz
+    if (this.currentCommand) {
+      if (this.currentCommand["algorithmSpecificData"]["lecturerCapacity"]) {
+        this.drawSPAlecturers();
+      }
+    }
+    
 
     if (this.currentCommand) {
       if (this.currentCommand["algorithmSpecificData"]["hospitalCapacity"]) {
         this.drawHospitalCapacity();
       }
+
       if (this.currentCommand["relevantPreferences"].length >= 1 && this.alwaysShowPreferences) {
         this.drawRelevantPreferences();
       } else {
-        this.drawAllPreferences();
+
+        // preferances drawn differently for SR
+        if (this.currentCommand["algorithmSpecificData"]["SR"]){
+          this.drawAllPreferences1Group();
+        } else {
+          this.drawAllPreferences();
+        }
       }
     }
+
+    
+
 
     this.selectCircles(this.currentCommand["currentlySelectedAgents"]);
 
