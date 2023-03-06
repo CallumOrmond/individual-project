@@ -10,3 +10,9 @@
 .cardButton:hover {
     background: rgb(211, 211, 211)
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
