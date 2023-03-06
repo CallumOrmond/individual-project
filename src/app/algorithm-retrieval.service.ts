@@ -171,27 +171,27 @@ export class AlgorithmRetrievalService {
         description: "The Hospitals/Residents Problem is the problem of finding a stable matching between a set of <b>hospitals and residents</b>, where a hospital can take multiple residents.<br><br>This is the <b>hospital-oriented</b> version of the algorithm, so <b>hospitals will propose to residents</b>.<br><br>To do this, the Extended Gale-Shapley Stable Marriage algorithm is used.",
         helpTextMap: {
           1 : "Set all hospitals and residents to be completely free",
-          2 : "While some hospital (%hospital%) is undersubscribed and has a resident on their preferance list that is not assigned to them",
-          3 : "Set r to %resident% from hospital's preferance list",
+          2 : "While some hospital (%hospital%) is undersubscribed and has a resident on their preference list that is not assigned to them",
+          3 : "Set r to %resident% from hospital's preference list",
           4 : "If %resident% is assigned to another hospital, unassign them from each other",
           5 : "Unassign %resident% and %oldHospital% from each other",
           6 : "Assign %resident% and %hospital% to each other",
-          7 : "For each hospital h' after %hospital% on %resident%'s preferance list, remove them from each others preferance list",
-          8 : "remove %resident% from %hospital%'s preferance list and %hospital% from %resident%'s preferance list",
+          7 : "For each hospital h' after %hospital% on %resident%'s preference list, remove them from each others preference list",
+          8 : "remove %resident% from %hospital%'s preference list and %hospital% from %resident%'s preference list",
           9 : "Stable matching is found",
 
           
         },
         code: [
           "Set each hospital and resident to be completely free",
-          "While some hospital h is undersubscibed, and has a resident on their preferance list",
+          "While some hospital h is undersubscibed, and has a resident on their preference list",
           "\t r := first resident on h's prefernace list not assigned to h",
           "\t if r is assigned to another hospital h'",
           "\t\t unassign r and h'",
           
           "\t provisionally assign r to h",
           "\t for each successor h' of h on r's list",
-          "\t\t remove h' and r from each others preferance list",
+          "\t\t remove h' and r from each others preference list",
           "stable matching is found "
         ]
       }
@@ -208,27 +208,27 @@ export class AlgorithmRetrievalService {
         description: "The stable roommates problem is the problem of finding a stable matching between 1 group of elements. In this case <b>people</b>.<br> <br>To do this the Irving’s algorithm is used",
         helpTextMap: {
           1: "Set all people to be free",
-          2 : "While some person %person% has not been assigned to a anyone and has a non-empty preferance list",
-          3 : "check if %person%\'s preferance list is empty",
+          2 : "While some person %person% has not been assigned to a anyone and has a non-empty preference list",
+          3 : "check if %person%\'s preference list is empty",
           4 : "end the algorithm, there is no stable matching",
 
-          5 : "the first person on %person%\'s preferance list is selected - %selected%",
+          5 : "the first person on %person%\'s preference list is selected - %selected%",
           6 : "set %person%\ to be provisonally assigned to selected person %selected%",
 
           7 : "check if any other person, other than %person% is assigned to %selected% ",
           8 : "If they are, then unassign them. unassign %old_person% from %selected%",
 
-          9 : "look through %selected%\'s preferance list - %list%, for each person less prefered than %person%",
-          10 : "remove %removee% from %person%\'s preferance list and remove %person% from %removee%\'s preferance list",
+          9 : "look through %selected%\'s preference list - %list%, for each person less prefered than %person%",
+          10 : "remove %removee% from %person%\'s preference list and remove %person% from %removee%\'s preference list",
 
-          11 : "While some person %person% has more then 1 person left in their preferance list - %list%",
-          12 : "look for rotations within %person%\'s preferance list, that is a cycle of ordered pairs through preferance lists",
+          11 : "While some person %person% has more then 1 person left in their preference list - %list%",
+          12 : "look for rotations within %person%\'s preference list, that is a cycle of ordered pairs through preference lists",
           13 : "if a rotation is found", //%rotation%
-          14 : "delete pairs in rotation - remove %removee% from %person%\'s preferance list and remove %person% from %removee%\'s preferance list",
+          14 : "delete pairs in rotation - remove %removee% from %person%\'s preference list and remove %person% from %removee%\'s preference list",
 
-          15 : "check if any person has only 1 preferance left",
-          16 : "assign %person% to the last person in their preferance list - %preferance%",
-          17 : "check if %person%\'s preferance list is empty",
+          15 : "check if any person has only 1 preference left",
+          16 : "assign %person% to the last person in their preference list - %preference%",
+          17 : "check if %person%\'s preference list is empty",
           18 : "end the algorithm, there is no stable matching",
          
           19 : "Stable mathcing found.",
@@ -238,30 +238,30 @@ export class AlgorithmRetrievalService {
         code: [
           "Set each person to be free",
           "While some person p is free (not assigned to someone)",
-          "\t if person p has a empty preferance list",
+          "\t if person p has a empty preference list",
           "\t\t end - no stable matching",
 
-          "\t person b := first preferance on p's list",
+          "\t person b := first preference on p's list",
            "\t assign p to b",
 
           "\t if any person a is assigned to person b",
           "\t\t free a",
 
-          "\t for each person c less preferded than p on b's preferance list",
+          "\t for each person c less preferded than p on b's preference list",
           "\t\t remove c from p's list and remove p from c's list",
           // 10 lines so far 
 
           // PAHSE 2
-          "While some person p has more than 1 preferance left",
-          "look for rotations in perosn p's preferance list",
+          "While some person p has more than 1 preference left",
+          "look for rotations in perosn p's preference list",
           "if rotation r is found",
           "\t delete pairs in rotation r",
 
 
           "\t if a person b has 1 perferance left",
-          "\t\t person b := last preferance",
+          "\t\t person b := last preference",
 
-          "if any people have empty preferance lists",
+          "if any people have empty preference lists",
           "\t end - no stable matching",
          
 
@@ -287,7 +287,7 @@ export class AlgorithmRetrievalService {
         helpTextMap: { 
           
           1 : "set each student, lecturer, and project to be free and unmatched",
-          2 : "While some student %student% is free and has a non-empty preferance list",
+          2 : "While some student %student% is free and has a non-empty preference list",
           3 : "%project% is selected as %student%'s most prefered project",
           4 : "The lecturer %lecturer% offers that project",
           5 : "The project %project% and the student %student% are assigned to each other",
@@ -302,14 +302,14 @@ export class AlgorithmRetrievalService {
           13 : "If the project %project% is at capacity",
           14 : "The worst (least preferable) student assigned to project %project% is %student%",
           15 : "For each student less preferable that %student% on the %lecturer%'s prefernce list",
-          16 : "If the student %student% has the project %project% on their preferance list",
+          16 : "If the student %student% has the project %project% on their preference list",
           17 : "Remove %project% from %student%'s preference list",
 
           18 : "If the lecturer %lecturer% is at capacity",
           19 : "The worst (least preferable) student assigned to a project %project% run by %lecturer% is %student%",
           20 : "For each student less preferable that %student% on the %lecturer%'s prefernce list",
           21 : "For each project that %lecturer% offers",
-          22 : "Remove %project% from %student%'s preferance list",
+          22 : "Remove %project% from %student%'s preference list",
 
           23 : "Stable matching is found ",
       

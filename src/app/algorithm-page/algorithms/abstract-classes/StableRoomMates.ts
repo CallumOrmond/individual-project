@@ -80,7 +80,7 @@ export abstract class StableRoomMates extends MatchingAlgorithm {
 
 
         let count = 0;
-        let name = "p"
+        // let name = "person"
 
         let nonStableSRInstacens6 = [unstable6_1, unstable6_2, unstable6_3]
         let nonStableSRInstacens8 = [unstable8_1, unstable8_2, unstable8_3]
@@ -125,10 +125,13 @@ export abstract class StableRoomMates extends MatchingAlgorithm {
             for (let [key, person] of this.group1Agents.entries()){   
                 for (let i = 0 ; i < this.group1Agents.size - 1 ; i++){
 
-                    person.ranking[i] = this.group1Agents.get(name + String(instance[count][i]));
+                    person.ranking[i] = this.group1Agents.get(this.group1Name + String(instance[count][i]));
                 }
                 count++;
             }
+
+            console.log("in gen", this.group1Agents)
+            console.log(instance)
         }
 // for (let [key, person] of this.group1Agents.entries()){   
         //     for (let i = 0 ; i < this.group1Agents.size - 1 ; i++){
