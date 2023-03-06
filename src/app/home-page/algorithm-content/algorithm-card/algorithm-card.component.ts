@@ -62,10 +62,30 @@ export class AlgorithmCardComponent implements OnInit {
 
   // on clicking "Generate Preferences" change the global algorithm to the one passed into this dialog
   async onGeneratePreferences(): Promise<void> {
+
     this.algorithmService.currentAlgorithm = this.algorithm;
-    this.algorithmService.numberOfGroup1Agents = this.numberOfGroup1Agents.value;
+
+    // makes sure the SR value is not odd or too large 
+    if (this.algorithmService.currentAlgorithm.id == "smp-room-irv") {
+      if (this.numberOfGroup1Agents.value % 2 == 1) {
+        this.algorithmService.numberOfGroup1Agents = this.numberOfGroup1Agents.value + 1
+
+        if (this.algorithmService.numberOfGroup1Agents == 10){
+          this.algorithmService.numberOfGroup1Agents = 8
+        }
+
+      } else {
+        this.algorithmService.numberOfGroup1Agents = this.numberOfGroup1Agents.value
+      }
+    } else {
+      this.algorithmService.numberOfGroup1Agents = this.numberOfGroup1Agents.value;
+    }
+
+
     if (this.numberOfGroup2Agents.value == '') {
       this.algorithmService.numberOfGroup2Agents = this.numberOfGroup1Agents.value;
+
+      
     } else {
       this.algorithmService.numberOfGroup2Agents = this.numberOfGroup2Agents.value;
     }

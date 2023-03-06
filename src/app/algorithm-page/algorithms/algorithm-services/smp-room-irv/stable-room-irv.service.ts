@@ -18,6 +18,11 @@ export class StableRoomIrvService extends StableRoomMates {
 
   generateAgents() {
 
+    if (this.numberOfAgents % 2 == 1) {
+      this.numberOfAgents = this.numberOfAgents + 1
+      console.log("this.numberOfAgents", this.numberOfAgents)
+    }
+
     // make each person 
     for (let i = 1; i < this.numberOfAgents + 1; i++) {
       let group1AgentName = this.group1Name + i;
