@@ -469,10 +469,10 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
     // END - Stable matching found
     this.update(23);
 
-    // console.log("--- End ---")
-    // console.log(this.group1Agents)
-    // console.log(this.group2Agents)
-    // console.log(this.group3Agents)
+    console.log("--- End ---")
+    console.log(this.group1Agents)
+    console.log(this.group2Agents)
+    console.log(this.group3Agents)
 
     return;
   }

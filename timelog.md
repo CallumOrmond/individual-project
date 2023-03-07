@@ -316,8 +316,8 @@ Coding, Finished SR
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 24 -->
 
-## Week 24 (27 Mar 2021 - 5 Mar 2021) - **0 hours**
-### 27 Feb 2023 (Mon) - 10.5 hours
+## Week 24 (27 Mar 2021 - 5 Mar 2021) - **43 hours**
+### 27 Feb 2023 (Mon)
 (11Hr) - Coding - SPA implementaion + Viz
 
 ### 28th Feb  
@@ -336,7 +336,8 @@ Coding, Finished SR
 (5Hr) - More Final code changes, test fixing, deployment
 
 ### 5th Mar
-() - 
+(8 Hr) - Fixing GitHub Pages, Dissertation
+
 
 
 <hr>
@@ -344,6 +345,14 @@ Coding, Finished SR
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 25 -->
 
 ## Week 25 (6 Mar 2021 - 12 Mar 2021) - **0 hours**
+### 6th Mar 2023 (Mon) 
+(8Hr) - Finilize Evaluation form, lauch evaluation, Fix launch bugs
+
+### 7th Mar
+(8Hr) - Dissertation
+
+### 8th Mar
+
 
 <hr>
 
