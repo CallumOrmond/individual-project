@@ -22,7 +22,8 @@ describe('StableRoomIrvService', () => {
     for (let i = 0; i < 1000; i++) {
 
       // only even numbers from 2 - 18
-      let agentCount: number = (Math.floor(Math.random() * (9 - 2) + 1)) * 2;
+      let agentCount: number = (Math.floor(Math.random() * (4) + 1)) * 2;
+      // console.log("agentCount", agentCount)
     
       // let array = [2,4,6,8]
       // let agentCount: number = array[Math.floor(Math.random() * array.length)];

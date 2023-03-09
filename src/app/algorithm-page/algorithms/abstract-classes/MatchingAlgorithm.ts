@@ -250,6 +250,13 @@ export abstract class MatchingAlgorithm {
         return position;
     }
 
+    findPositionInOriginalMatches1Group(currentAgent: Agent, agentToFind: Agent) {
+        let originalPreferences = this.originalGroup1CurrentPreferences.get(this.getLastCharacter(currentAgent.name));
+        // console.log("originalPreferences", this.originalGroup1CurrentPreferences)
+        let position: number = originalPreferences.indexOf(this.getLastCharacter(agentToFind.name))
+        return position
+    }
+
     findPositionInOriginalMatchesGroup2(currentAgent: Agent, agentToFind: Agent) {
         let originalPreferences = this.originalGroup2CurrentPreferences.get(currentAgent.name[currentAgent.name.length - 1]);
         // console.log("Group2", originalPreferences)
@@ -347,6 +354,8 @@ export abstract class MatchingAlgorithm {
         for (let agent of allMatches.keys()) {
             let agentMatches = allMatches.get(agent);
 
+            console.log(agentMatches)
+
             // if agent has matches
             if (agentMatches.length > 0) {
 
@@ -365,7 +374,11 @@ export abstract class MatchingAlgorithm {
                         let currentAgentPosition = this.findPositionInOriginalMatches(agentPreferences[i], this.group2Agents.get(agent));
                         if (currentAgentPosition < matchPosition) {
                             stability = false;
+                        } else {
+                            // console.log("Stable")
                         }
+                    } else {
+                        console.log("Stable")
                     }
                 }
             }
