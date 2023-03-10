@@ -488,8 +488,9 @@ describe('workspace-project App', () => {
     element(by.id('hr4')).sendKeys(5);
     element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#lhsName')).getText()).toContain("Residents");
-    expect(element(by.css('#rhsName')).getText()).toContain("Hospitals");
+    // flipped 
+    expect(element(by.css('#rhsName')).getText()).toContain("Residents");
+    expect(element(by.css('#lhsName')).getText()).toContain("Hospitals");
   });
 
 
@@ -598,7 +599,8 @@ describe('workspace-project App', () => {
       element(by.id('smp-room-irv')).sendKeys(6);
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.css('#lhsName')).getText()).toContain("Men");
+      // only one group name
+      expect(element(by.css('#lhsName')).getText()).toContain("Person");
       
     });
   
@@ -634,7 +636,7 @@ describe('workspace-project App', () => {
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
       
       element(by.id('forwardButton')).click();
-      expect(element(by.css('#algorithmDescription')).getText()).toContain("While there are some men who are not engaged, select the next one (man1)");
+      expect(element(by.css('#algorithmDescription')).getText()).toContain("While some person person1 has not been assigned to a anyone and has a non-empty preference list");
     });
 
 
