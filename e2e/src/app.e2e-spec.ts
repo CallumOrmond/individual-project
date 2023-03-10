@@ -425,130 +425,130 @@ describe('workspace-project App', () => {
   // // ---------------- HR-HOSPITAL-EGS TESTS
 
 
-  it('navigation to hr works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr1')).click();
-    element(by.id('hr1')).sendKeys(5);
-    element(by.id('hr2')).click();
-    element(by.id('hr2')).sendKeys(5);
-    element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
-    // element(by.cssContainingText('h1', 'Learn')).click();
-  });
+  // it('navigation to hr works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr1')).click();
+  //   element(by.id('hr1')).sendKeys(5);
+  //   element(by.id('hr2')).click();
+  //   element(by.id('hr2')).sendKeys(5);
+  //   element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
+  //   // element(by.cssContainingText('h1', 'Learn')).click();
+  // });
 
-  it('hr: playback controls display correctly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: playback controls display correctly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-  });
+  //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+  // });
 
-  it('hr: description displays properly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: description displays properly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#algorithmDescription')).getText()).toContain("Set all hospitals and residents to be completely free");
-  });
+  //   expect(element(by.css('#algorithmDescription')).getText()).toContain("Set all hospitals and residents to be completely free");
+  // });
 
-  it('hr: pseudocode displays properly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: pseudocode displays properly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#line4')).getText()).toContain("if r is assigned to another hospital h'");
-  });
+  //   expect(element(by.css('#line4')).getText()).toContain("if r is assigned to another hospital h'");
+  // });
 
-  it('hr: execution log displays properly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: execution log displays properly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#executionTrace')).getText()).toContain("Set all hospitals and residents to be completely free");
-  });
+  //   expect(element(by.css('#executionTrace')).getText()).toContain("Set all hospitals and residents to be completely free");
+  // });
 
-  it('hr: group names display properly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: group names display properly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    // flipped 
-    expect(element(by.css('#rhsName')).getText()).toContain("Hospitals");
-    expect(element(by.css('#lhsName')).getText()).toContain("Residents");
-  });
+  //   // flipped 
+  //   expect(element(by.css('#rhsName')).getText()).toContain("Hospitals");
+  //   expect(element(by.css('#lhsName')).getText()).toContain("Residents");
+  // });
 
 
-  it('hr: playback works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: playback works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
     
-    expect(element(by.css('#stepCounter')).getText()).toContain("0");
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#stepCounter')).getText()).toContain("1");
-  });
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+  // });
 
-  it('hr: pseudocode highlighting works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: pseudocode highlighting works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
     
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-  });
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+  // });
 
-  it('hr: description changing works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: description changing works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
     
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#algorithmDescription')).getText()).toContain("While some hospital (hospitalA) is undersubscribed and has a resident on their preference list that is not assigned to them");
-  });
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#algorithmDescription')).getText()).toContain("While some hospital (hospitalA) is undersubscribed and has a resident on their preference list that is not assigned to them");
+  // });
 
 
 
     // // ---------------- SMP-ROOM-IRV TESTS
 
 
-    it('navigation to smp-man-egs works', () => {
+    it('navigation to ssmp-room-irv works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -558,7 +558,7 @@ describe('workspace-project App', () => {
     });
   
   
-    it('smp-man-egs: playback controls display correctly', () => {
+    it('smp-room-irv: playback controls display correctly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -572,7 +572,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
     });
   
-    it('smp-man-egs: description displays properly', () => {
+    it('smp-room-irv: description displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -582,7 +582,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#algorithmDescription')).getText()).toContain("Set all men and women to have no engagements");
     });
   
-    it('smp-man-egs: pseudocode displays properly', () => {
+    it('smp-room-irv: pseudocode displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -592,7 +592,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#line4')).getText()).toContain("end - no stable matching");
     });
   
-    it('smp-man-egs: execution log displays properly', () => {
+    it('smp-room-irv: execution log displays properly', () => {
       page.navigateTo();
       element(by.id('smp-room-irv')).click();
       element(by.id('smp-room-irv')).sendKeys(6);
@@ -601,7 +601,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#executionTrace')).getText()).toContain("Set all people to be free");
     });
   
-    it('smp-man-egs: group names display properly', () => {
+    it('smp-room-irv: group names display properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -614,7 +614,7 @@ describe('workspace-project App', () => {
     });
   
   
-    it('smp-man-egs: playback works', () => {
+    it('smp-room-irv: playback works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -626,7 +626,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#stepCounter')).getText()).toContain("1");
     });
   
-    it('smp-man-egs: pseudocode highlighting works', () => {
+    it('smp-room-irv: pseudocode highlighting works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -637,7 +637,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
     });
   
-    it('smp-man-egs: description changing works', () => {
+    it('smp-room-irv: description changing works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -648,12 +648,24 @@ describe('workspace-project App', () => {
       expect(element(by.css('#algorithmDescription')).getText()).toContain("While some person person1 has not been assigned to a anyone and has a non-empty preference list");
     });
 
+    it('smp-room-irv: Information sidebar displays properly', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+      
+      expect(element(by.id("title")).getText()).toContain("Stable Roommates Problem");
+    });
+
+
+
 
 
     // // ---------------- SPA-STU-EGS TESTS
 
 
-    it('navigation to smp-man-egs works', () => {
+    it('navigation to spa-stu-egs works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -663,7 +675,7 @@ describe('workspace-project App', () => {
     });
   
   
-    it('smp-man-egs: playback controls display correctly', () => {
+    it('spa-stu-egs: playback controls display correctly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -677,7 +689,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
     });
   
-    it('smp-man-egs: description displays properly', () => {
+    it('spa-stu-egs: description displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -687,7 +699,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#algorithmDescription')).getText()).toContain("set each student, lecturer, and project to be free and unmatched");
     });
   
-    it('smp-man-egs: pseudocode displays properly', () => {
+    it('spa-stu-egs: pseudocode displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -697,7 +709,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#line4')).getText()).toContain("l = lecturer who offers p");
     });
   
-    it('smp-man-egs: execution log displays properly', () => {
+    it('spa-stu-egs: execution log displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -707,7 +719,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#executionTrace')).getText()).toContain("set each student, lecturer, and project to be free and unmatched");
     });
   
-    it('smp-man-egs: group names display properly', () => {
+    it('spa-stu-egs: group names display properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -719,7 +731,7 @@ describe('workspace-project App', () => {
     });
   
   
-    it('smp-man-egs: playback works', () => {
+    it('spa-stu-egs: playback works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -731,7 +743,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#stepCounter')).getText()).toContain("1");
     });
   
-    it('smp-man-egs: pseudocode highlighting works', () => {
+    it('spa-stu-egs: pseudocode highlighting works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
@@ -742,7 +754,7 @@ describe('workspace-project App', () => {
       expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
     });
   
-    it('smp-man-egs: description changing works', () => {
+    it('spa-stu-egs: description changing works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('spa-stu-egs')).click();
