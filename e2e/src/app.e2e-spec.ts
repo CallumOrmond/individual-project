@@ -193,6 +193,8 @@ describe('workspace-project App', () => {
             //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
               
             //   expect(element(by.id("title_main")).getText()).toContain("Stable Marriage Problem");
+            //   expect(element(by.id("title")).getText()).toContain("Set Up");
+
             // });
 
 
@@ -308,6 +310,8 @@ describe('workspace-project App', () => {
           //   element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
             
           //   expect(element(by.id("title_main")).getText()).toContain("Stable Marriage Problem");
+          //   expect(element(by.id("title")).getText()).toContain("Set Up");
+
           // });
 
 
@@ -442,6 +446,7 @@ describe('workspace-project App', () => {
           //   element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
             
           //   expect(element(by.id("title_main")).getText()).toContain("Hospitals/Residents Problem");
+          //   expect(element(by.id("title")).getText()).toContain("Set Up");
           // });
 
           
@@ -587,6 +592,8 @@ describe('workspace-project App', () => {
   //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
     
   //   expect(element(by.id("title_main")).getText()).toContain("Hospitals/Residents Problem");
+  //   expect(element(by.id("title")).getText()).toContain("Set Up");
+
   // });
 
 
@@ -701,6 +708,8 @@ describe('workspace-project App', () => {
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
       
       expect(element(by.id("title_main")).getText()).toContain("Stable Roommates Problem");
+      expect(element(by.id("title")).getText()).toContain("Set Up");
+
     });
 
 
@@ -840,6 +849,8 @@ describe('workspace-project App', () => {
       element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
       expect(element(by.id("title_main")).getText()).toContain("Student Project Allocation");
+      expect(element(by.id("title")).getText()).toContain("Set Up");
+
     });
 
 
