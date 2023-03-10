@@ -548,7 +548,7 @@ describe('workspace-project App', () => {
     // // ---------------- SMP-ROOM-IRV TESTS
 
 
-    it('navigation to ssmp-room-irv works', () => {
+    it('navigation to smp-room-irv works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
@@ -668,9 +668,13 @@ describe('workspace-project App', () => {
     it('navigation to spa-stu-egs works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
+
+      
       // element(by.cssContainingText('h1', 'Learn')).click();
     });
   
@@ -678,9 +682,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: playback controls display correctly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
       expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
       expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
@@ -692,9 +698,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: description displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
       expect(element(by.css('#algorithmDescription')).getText()).toContain("set each student, lecturer, and project to be free and unmatched");
     });
@@ -702,9 +710,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: pseudocode displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
       expect(element(by.css('#line4')).getText()).toContain("l = lecturer who offers p");
     });
@@ -712,9 +722,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: execution log displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
       expect(element(by.css('#executionTrace')).getText()).toContain("set each student, lecturer, and project to be free and unmatched");
     });
@@ -722,9 +734,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: group names display properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
       expect(element(by.css('#lhsName')).getText()).toContain("Students");
       expect(element(by.css('#rhsName')).getText()).toContain("Projects");
@@ -734,9 +748,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: playback works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
       expect(element(by.css('#stepCounter')).getText()).toContain("0");
       element(by.id('forwardButton')).click();
@@ -746,9 +762,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: pseudocode highlighting works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
       element(by.id('forwardButton')).click();
       expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
@@ -757,9 +775,11 @@ describe('workspace-project App', () => {
     it('spa-stu-egs: description changing works', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('spa-stu-egs')).click();
-      element(by.id('spa-stu-egs')).sendKeys(6);
-      element(by.id('spa-stu-egs')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
       element(by.id('forwardButton')).click();
       expect(element(by.css('#algorithmDescription')).getText()).toContain("While some student student1 is free and has a non-empty preference list");
