@@ -37,7 +37,7 @@ describe('SpaStudentEgsService', () => {
 
     it('test correctness x10000 (hr-resident-egs)', () => {
       let stable: boolean = true;
-      for (let i = 0; i < 1000; i++) {
+      for (let i = 0; i < 10000; i++) {
         let agent1Count: number = 4 //Math.floor(Math.random() * (9 - 2) + 2);
         let agent2Count: number = 5 //Math.floor(Math.random() * (9 - 2) + 2);
 
