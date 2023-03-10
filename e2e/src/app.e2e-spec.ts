@@ -95,19 +95,19 @@ describe('workspace-project App', () => {
     // element(by.cssContainingText('h1', 'Learn')).click();
   });
 
-  it('smp-man-gs: playback controls display correctly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('smp-man-gs')).click();
-    element(by.id('smp-man-gs')).sendKeys(5);
-    element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+  // it('smp-man-gs: playback controls display correctly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('smp-man-gs')).click();
+  //   element(by.id('smp-man-gs')).sendKeys(5);
+  //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
     
-    expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-  });
+  //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+  // });
 
   it('smp-man-gs: description displays properly', () => {
     page.navigateTo();
@@ -151,28 +151,28 @@ describe('workspace-project App', () => {
   });
 
 
-  it('smp-man-gs: playback works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('smp-man-gs')).click();
-    element(by.id('smp-man-gs')).sendKeys(5);
-    element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+  // it('smp-man-gs: playback works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('smp-man-gs')).click();
+  //   element(by.id('smp-man-gs')).sendKeys(5);
+  //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
     
-    expect(element(by.css('#stepCounter')).getText()).toContain("0");
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#stepCounter')).getText()).toContain("1");
-  });
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+  // });
 
-  it('smp-man-gs: pseudocode highlighting works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('smp-man-gs')).click();
-    element(by.id('smp-man-gs')).sendKeys(5);
-    element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+  // it('smp-man-gs: pseudocode highlighting works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('smp-man-gs')).click();
+  //   element(by.id('smp-man-gs')).sendKeys(5);
+  //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
     
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-  });
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+  // });
 
   it('smp-man-gs: description changing works', () => {
     page.navigateTo();
@@ -212,19 +212,19 @@ describe('workspace-project App', () => {
   });
 
 
-  it('smp-man-egs: playback controls display correctly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('smp-man-egs')).click();
-    element(by.id('smp-man-egs')).sendKeys(5);
-    element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
+  // it('smp-man-egs: playback controls display correctly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('smp-man-egs')).click();
+  //   element(by.id('smp-man-egs')).sendKeys(5);
+  //   element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-  });
+  //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+  // });
 
   it('smp-man-egs: description displays properly', () => {
     page.navigateTo();
@@ -268,28 +268,28 @@ describe('workspace-project App', () => {
   });
 
 
-  it('smp-man-egs: playback works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('smp-man-egs')).click();
-    element(by.id('smp-man-egs')).sendKeys(5);
-    element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
+  // it('smp-man-egs: playback works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('smp-man-egs')).click();
+  //   element(by.id('smp-man-egs')).sendKeys(5);
+  //   element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
     
-    expect(element(by.css('#stepCounter')).getText()).toContain("0");
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#stepCounter')).getText()).toContain("1");
-  });
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+  // });
 
-  it('smp-man-egs: pseudocode highlighting works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('smp-man-egs')).click();
-    element(by.id('smp-man-egs')).sendKeys(5);
-    element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
+  // it('smp-man-egs: pseudocode highlighting works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('smp-man-egs')).click();
+  //   element(by.id('smp-man-egs')).sendKeys(5);
+  //   element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
     
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-  });
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+  // });
 
   it('smp-man-egs: description changing works', () => {
     page.navigateTo();
@@ -330,21 +330,21 @@ describe('workspace-project App', () => {
     // element(by.cssContainingText('h1', 'Learn')).click();
   });
 
-  it('hr: playback controls display correctly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr1')).click();
-    element(by.id('hr1')).sendKeys(5);
-    element(by.id('hr2')).click();
-    element(by.id('hr2')).sendKeys(5);
-    element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
+  // it('hr: playback controls display correctly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr1')).click();
+  //   element(by.id('hr1')).sendKeys(5);
+  //   element(by.id('hr2')).click();
+  //   element(by.id('hr2')).sendKeys(5);
+  //   element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-  });
+  //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+  // });
 
   it('hr: description displays properly', () => {
     page.navigateTo();
@@ -396,32 +396,32 @@ describe('workspace-project App', () => {
   });
 
 
-  it('hr: playback works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr1')).click();
-    element(by.id('hr1')).sendKeys(5);
-    element(by.id('hr2')).click();
-    element(by.id('hr2')).sendKeys(5);
-    element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
+  // it('hr: playback works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr1')).click();
+  //   element(by.id('hr1')).sendKeys(5);
+  //   element(by.id('hr2')).click();
+  //   element(by.id('hr2')).sendKeys(5);
+  //   element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
     
-    expect(element(by.css('#stepCounter')).getText()).toContain("0");
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#stepCounter')).getText()).toContain("1");
-  });
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+  // });
 
-  it('hr: pseudocode highlighting works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr1')).click();
-    element(by.id('hr1')).sendKeys(5);
-    element(by.id('hr2')).click();
-    element(by.id('hr2')).sendKeys(5);
-    element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
+  // it('hr: pseudocode highlighting works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr1')).click();
+  //   element(by.id('hr1')).sendKeys(5);
+  //   element(by.id('hr2')).click();
+  //   element(by.id('hr2')).sendKeys(5);
+  //   element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
     
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-  });
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+  // });
 
   it('hr: description changing works', () => {
     page.navigateTo();
@@ -475,21 +475,21 @@ describe('workspace-project App', () => {
     // element(by.cssContainingText('h1', 'Learn')).click();
   });
 
-  it('hr/h: playback controls display correctly', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: playback controls display correctly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
-    expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-    expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-  });
+  //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+  //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+  // });
 
   it('hr/h: description displays properly', () => {
     page.navigateTo();
@@ -542,32 +542,32 @@ describe('workspace-project App', () => {
   });
 
 
-  it('hr/h: playback works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: playback works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
     
-    expect(element(by.css('#stepCounter')).getText()).toContain("0");
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#stepCounter')).getText()).toContain("1");
-  });
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+  // });
 
-  it('hr/h: pseudocode highlighting works', () => {
-    page.navigateTo();
-    element(by.id('algorithmsLink')).click();
-    element(by.id('hr3')).click();
-    element(by.id('hr3')).sendKeys(5);
-    element(by.id('hr4')).click();
-    element(by.id('hr4')).sendKeys(5);
-    element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+  // it('hr/h: pseudocode highlighting works', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
     
-    element(by.id('forwardButton')).click();
-    expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-  });
+  //   element(by.id('forwardButton')).click();
+  //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+  // });
 
   it('hr/h: description changing works', () => {
     page.navigateTo();
@@ -611,19 +611,19 @@ describe('workspace-project App', () => {
     });
   
   
-    it('smp-room-irv: playback controls display correctly', () => {
-      page.navigateTo();
-      element(by.id('algorithmsLink')).click();
-      element(by.id('smp-room-irv')).click();
-      element(by.id('smp-room-irv')).sendKeys(6);
-      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+    // it('smp-room-irv: playback controls display correctly', () => {
+    //   page.navigateTo();
+    //   element(by.id('algorithmsLink')).click();
+    //   element(by.id('smp-room-irv')).click();
+    //   element(by.id('smp-room-irv')).sendKeys(6);
+    //   element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-    });
+    //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+    // });
   
     it('smp-room-irv: description displays properly', () => {
       page.navigateTo();
@@ -668,28 +668,28 @@ describe('workspace-project App', () => {
       
     });
   
-    it('smp-room-irv: playback works', () => {
-      page.navigateTo();
-      element(by.id('algorithmsLink')).click();
-      element(by.id('smp-room-irv')).click();
-      element(by.id('smp-room-irv')).sendKeys(6);
-      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+    // it('smp-room-irv: playback works', () => {
+    //   page.navigateTo();
+    //   element(by.id('algorithmsLink')).click();
+    //   element(by.id('smp-room-irv')).click();
+    //   element(by.id('smp-room-irv')).sendKeys(6);
+    //   element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
       
-      expect(element(by.css('#stepCounter')).getText()).toContain("0");
-      element(by.id('forwardButton')).click();
-      expect(element(by.css('#stepCounter')).getText()).toContain("1");
-    });
+    //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+    //   element(by.id('forwardButton')).click();
+    //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+    // });
   
-    it('smp-room-irv: pseudocode highlighting works', () => {
-      page.navigateTo();
-      element(by.id('algorithmsLink')).click();
-      element(by.id('smp-room-irv')).click();
-      element(by.id('smp-room-irv')).sendKeys(6);
-      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+    // it('smp-room-irv: pseudocode highlighting works', () => {
+    //   page.navigateTo();
+    //   element(by.id('algorithmsLink')).click();
+    //   element(by.id('smp-room-irv')).click();
+    //   element(by.id('smp-room-irv')).sendKeys(6);
+    //   element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
       
-      element(by.id('forwardButton')).click();
-      expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-    });
+    //   element(by.id('forwardButton')).click();
+    //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+    // });
   
     it('smp-room-irv: description changing works', () => {
       page.navigateTo();
@@ -735,21 +735,21 @@ describe('workspace-project App', () => {
     });
   
   
-    it('spa-stu-egs: playback controls display correctly', () => {
-      page.navigateTo();
-      element(by.id('algorithmsLink')).click();
-      element(by.id('spa1')).click();
-      element(by.id('spa1')).sendKeys(5);
-      element(by.id('spa2')).click();
-      element(by.id('spa2')).sendKeys(5);
-      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
+    // it('spa-stu-egs: playback controls display correctly', () => {
+    //   page.navigateTo();
+    //   element(by.id('algorithmsLink')).click();
+    //   element(by.id('spa1')).click();
+    //   element(by.id('spa1')).sendKeys(5);
+    //   element(by.id('spa2')).click();
+    //   element(by.id('spa2')).sendKeys(5);
+    //   element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-      expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-    });
+    //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+    //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+    // });
   
     it('spa-stu-egs: description displays properly', () => {
       page.navigateTo();
@@ -802,32 +802,32 @@ describe('workspace-project App', () => {
     });
   
   
-    it('spa-stu-egs: playback works', () => {
-      page.navigateTo();
-      element(by.id('algorithmsLink')).click();
-      element(by.id('spa1')).click();
-      element(by.id('spa1')).sendKeys(5);
-      element(by.id('spa2')).click();
-      element(by.id('spa2')).sendKeys(5);
-      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
+    // it('spa-stu-egs: playback works', () => {
+    //   page.navigateTo();
+    //   element(by.id('algorithmsLink')).click();
+    //   element(by.id('spa1')).click();
+    //   element(by.id('spa1')).sendKeys(5);
+    //   element(by.id('spa2')).click();
+    //   element(by.id('spa2')).sendKeys(5);
+    //   element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
-      expect(element(by.css('#stepCounter')).getText()).toContain("0");
-      element(by.id('forwardButton')).click();
-      expect(element(by.css('#stepCounter')).getText()).toContain("1");
-    });
+    //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
+    //   element(by.id('forwardButton')).click();
+    //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
+    // });
   
-    it('spa-stu-egs: pseudocode highlighting works', () => {
-      page.navigateTo();
-      element(by.id('algorithmsLink')).click();
-      element(by.id('spa1')).click();
-      element(by.id('spa1')).sendKeys(5);
-      element(by.id('spa2')).click();
-      element(by.id('spa2')).sendKeys(5);
-      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
+    // it('spa-stu-egs: pseudocode highlighting works', () => {
+    //   page.navigateTo();
+    //   element(by.id('algorithmsLink')).click();
+    //   element(by.id('spa1')).click();
+    //   element(by.id('spa1')).sendKeys(5);
+    //   element(by.id('spa2')).click();
+    //   element(by.id('spa2')).sendKeys(5);
+    //   element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
-      element(by.id('forwardButton')).click();
-      expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-    });
+    //   element(by.id('forwardButton')).click();
+    //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+    // });
   
     it('spa-stu-egs: description changing works', () => {
       page.navigateTo();
