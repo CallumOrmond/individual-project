@@ -647,11 +647,13 @@ describe('workspace-project App', () => {
   
     it('smp-room-irv: execution log displays properly', () => {
       page.navigateTo();
+      element(by.id('algorithmsLink')).click();
       element(by.id('smp-room-irv')).click();
       element(by.id('smp-room-irv')).sendKeys(6);
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.id('executionTrace')).getText()).toContain("Set all people to be free.");
+      // expect(element(by.id('executionTrace')).getText()).toContain("Set all people to be free.");
+      expect(element(by.css('#executionTrace')).getText()).toContain("Set all people to be free.");
     });
   
     it('smp-room-irv: group names display properly', () => {
@@ -783,6 +785,7 @@ describe('workspace-project App', () => {
       element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
   
       expect(element(by.css('#executionTrace')).getText()).toContain("set each student, lecturer, and project to be free and unmatched");
+      
     });
   
     it('spa-stu-egs: group names display properly', () => {
