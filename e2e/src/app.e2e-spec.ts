@@ -185,6 +185,16 @@ describe('workspace-project App', () => {
           //   expect(element(by.css('#algorithmDescription')).getText()).toContain("While there is still a man without a match, select the first one (man1)");
           // });
 
+          // it('smp-room-irv: Information sidebar displays properly', () => {
+            //   page.navigateTo();
+            //   element(by.id('algorithmsLink')).click();
+            //   element(by.id('smp-man-gs')).click();
+            //   element(by.id('smp-man-gs')).sendKeys(5);
+            //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+              
+            //   expect(element(by.id("title")).getText()).toContain("Stable Marriage Problem");
+            // });
+
 
 
           // // // ---------------- SMP-MAN-EGS TESTS
@@ -288,6 +298,16 @@ describe('workspace-project App', () => {
             
           //   element(by.id('forwardButton')).click();
           //   expect(element(by.css('#algorithmDescription')).getText()).toContain("While there are some men who are not engaged, select the next one (man1)");
+          // });
+
+          // it('smp-room-irv: Information sidebar displays properly', () => {
+          //   page.navigateTo();
+          //   element(by.id('algorithmsLink')).click();
+          //   element(by.id('smp-man-egs')).click();
+          //   element(by.id('smp-man-egs')).sendKeys(5);
+          //   element(by.id('smp-man-egs')).sendKeys(protractor.Key.ENTER);
+            
+          //   expect(element(by.id("title")).getText()).toContain("Stable Marriage Problem");
           // });
 
 
@@ -411,6 +431,20 @@ describe('workspace-project App', () => {
           //   element(by.id('forwardButton')).click();
           //   expect(element(by.css('#algorithmDescription')).getText()).toContain("The next resident who doesn't have a match and still has some hospitals in their preference list is selected (resident1)");
           // });
+
+          // it('smp-room-irv: Information sidebar displays properly', () => {
+          //   page.navigateTo();
+          //   element(by.id('algorithmsLink')).click();
+          //   element(by.id('hr1')).click();
+          //   element(by.id('hr1')).sendKeys(5);
+          //   element(by.id('hr2')).click();
+          //   element(by.id('hr2')).sendKeys(5);
+          //   element(by.id('hr2')).sendKeys(protractor.Key.ENTER);
+            
+          //   expect(element(by.id("title")).getText()).toContain("Hospitals/Residents Problem");
+          // });
+
+          
 
 
 
@@ -543,6 +577,18 @@ describe('workspace-project App', () => {
   //   expect(element(by.css('#algorithmDescription')).getText()).toContain("While some hospital (hospitalA) is undersubscribed and has a resident on their preference list that is not assigned to them");
   // });
 
+  // it('smp-room-irv: Information sidebar displays properly', () => {
+  //   page.navigateTo();
+  //   element(by.id('algorithmsLink')).click();
+  //   element(by.id('hr3')).click();
+  //   element(by.id('hr3')).sendKeys(5);
+  //   element(by.id('hr4')).click();
+  //   element(by.id('hr4')).sendKeys(5);
+  //   element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
+    
+  //   expect(element(by.id("title")).getText()).toContain("Hospitals/Residents Problem");
+  // });
+
 
 
     // // ---------------- SMP-ROOM-IRV TESTS
@@ -598,7 +644,7 @@ describe('workspace-project App', () => {
       element(by.id('smp-room-irv')).sendKeys(6);
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.css('#executionTrace')).getText()).toContain("Set all people to be free.");
+      expect(element(by.id('executionTrace')).getText()).toContain("Set all people to be free.");
     });
   
     it('smp-room-irv: group names display properly', () => {
@@ -787,9 +833,11 @@ describe('workspace-project App', () => {
     it('smp-room-irv: Information sidebar displays properly', () => {
       page.navigateTo();
       element(by.id('algorithmsLink')).click();
-      element(by.id('smp-room-irv')).click();
-      element(by.id('smp-room-irv')).sendKeys(6);
-      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+      element(by.id('spa1')).click();
+      element(by.id('spa1')).sendKeys(5);
+      element(by.id('spa2')).click();
+      element(by.id('spa2')).sendKeys(5);
+      element(by.id('spa2')).sendKeys(protractor.Key.ENTER);
       
       expect(element(by.id("title")).getText()).toContain("Student Project Allocation");
     });
