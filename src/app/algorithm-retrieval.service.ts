@@ -238,8 +238,8 @@ export class AlgorithmRetrievalService {
         code: [
           "Set each person to be free",
           "While some person p is free (not assigned to someone)",
-          "\t if person p has a empty preference list",
-          "\t\t end - no stable matching",
+          "\tif person p has a empty preference list",
+          "\t\tend - no stable matching",
 
           "\t person b := first preference on p's list",
            "\t assign p to b",

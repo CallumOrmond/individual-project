@@ -534,6 +534,110 @@ describe('workspace-project App', () => {
   });
 
 
+
+    // // ---------------- SMP-ROOM-IRV TESTS
+
+
+    it('navigation to smp-man-egs works', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+      // element(by.cssContainingText('h1', 'Learn')).click();
+    });
+  
+  
+    it('smp-man-egs: playback controls display correctly', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+  
+      expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+      expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+      expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+      expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+      expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+    });
+  
+    it('smp-man-egs: description displays properly', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+  
+      expect(element(by.css('#algorithmDescription')).getText()).toContain("Set all men and women to have no engagements");
+    });
+  
+    it('smp-man-egs: pseudocode displays properly', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+  
+      expect(element(by.css('#line4')).getText()).toContain("end - no stable matching");
+    });
+  
+    it('smp-man-egs: execution log displays properly', () => {
+      page.navigateTo();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+  
+      expect(element(by.css('#executionTrace')).getText()).toContain("Set all people to be free");
+    });
+  
+    it('smp-man-egs: group names display properly', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+  
+      expect(element(by.css('#lhsName')).getText()).toContain("Men");
+      
+    });
+  
+  
+    it('smp-man-egs: playback works', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+      
+      expect(element(by.css('#stepCounter')).getText()).toContain("0");
+      element(by.id('forwardButton')).click();
+      expect(element(by.css('#stepCounter')).getText()).toContain("1");
+    });
+  
+    it('smp-man-egs: pseudocode highlighting works', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+      
+      element(by.id('forwardButton')).click();
+      expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+    });
+  
+    it('smp-man-egs: description changing works', () => {
+      page.navigateTo();
+      element(by.id('algorithmsLink')).click();
+      element(by.id('smp-room-irv')).click();
+      element(by.id('smp-room-irv')).sendKeys(6);
+      element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
+      
+      element(by.id('forwardButton')).click();
+      expect(element(by.css('#algorithmDescription')).getText()).toContain("While there are some men who are not engaged, select the next one (man1)");
+    });
+
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
