@@ -579,7 +579,7 @@ describe('workspace-project App', () => {
       element(by.id('smp-room-irv')).sendKeys(6);
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.css('#algorithmDescription')).getText()).toContain("Set all men and women to have no engagements");
+      expect(element(by.css('#algorithmDescription')).getText()).toContain("Set all people to be free");
     });
   
     it('smp-room-irv: pseudocode displays properly', () => {
@@ -598,7 +598,7 @@ describe('workspace-project App', () => {
       element(by.id('smp-room-irv')).sendKeys(6);
       element(by.id('smp-room-irv')).sendKeys(protractor.Key.ENTER);
   
-      expect(element(by.css('#executionTrace')).getText()).toContain("Set all people to be free");
+      expect(element(by.css('#executionTrace')).getText()).toContain("Set all people to be free.");
     });
   
     it('smp-room-irv: group names display properly', () => {
