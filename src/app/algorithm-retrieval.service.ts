@@ -318,7 +318,7 @@ export class AlgorithmRetrievalService {
           "set each student, lecturer, and project to be free",
           "while some student s is free:",
           "\t p = next most prefered project on s's list",
-          "\t l = lecturer who offers p",
+          "\tl = lecturer who offers p",
           "\t provisionally assign s to p",
           "\t if p is over-subscribed:",
           "\t\t Sw = worst student assigned to p",

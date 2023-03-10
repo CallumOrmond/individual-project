@@ -11,9 +11,9 @@ import { Student } from '../../interfaces/Student';
 })
 export class SpaStudentEgsService extends StudentProjectAllocation{
 
-  group1Name = "s";
-  group2Name = "p";
-  group3Name = "l"
+  group1Name = "student";
+  group2Name = "project";
+  group3Name = "lecturer"
 
   group1Agents: Map<String, Student> = new Map();
   group2Agents: Map<String, Project> = new Map();
