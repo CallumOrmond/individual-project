@@ -185,8 +185,8 @@ export class AlgorithmRetrievalService {
         code: [
           "Set each hospital and resident to be completely free",
           "While some hospital h is undersubscibed, and has a resident on their preference list",
-          "\t r := first resident on h's prefernace list not assigned to h",
-          "\t if r is assigned to another hospital h'",
+          "\tr := first resident on h's prefernace list not assigned to h",
+          "\tif r is assigned to another hospital h'",
           "\t\t unassign r and h'",
           
           "\t provisionally assign r to h",
