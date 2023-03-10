@@ -489,8 +489,8 @@ describe('workspace-project App', () => {
     element(by.id('hr4')).sendKeys(protractor.Key.ENTER);
 
     // flipped 
-    expect(element(by.css('#rhsName')).getText()).toContain("Residents");
-    expect(element(by.css('#lhsName')).getText()).toContain("Hospitals");
+    expect(element(by.css('#rhsName')).getText()).toContain("Hospitals");
+    expect(element(by.css('#lhsName')).getText()).toContain("Residents");
   });
 
 
