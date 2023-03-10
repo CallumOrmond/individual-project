@@ -95,19 +95,19 @@ describe('workspace-project App', () => {
     // element(by.cssContainingText('h1', 'Learn')).click();
   });
 
-  // it('smp-man-gs: playback controls display correctly', () => {
-  //   page.navigateTo();
-  //   element(by.id('algorithmsLink')).click();
-  //   element(by.id('smp-man-gs')).click();
-  //   element(by.id('smp-man-gs')).sendKeys(5);
-  //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+  it('smp-man-gs: playback controls display correctly', () => {
+    page.navigateTo();
+    element(by.id('algorithmsLink')).click();
+    element(by.id('smp-man-gs')).click();
+    element(by.id('smp-man-gs')).sendKeys(5);
+    element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
     
-  //   expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
-  //   expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
-  //   expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
-  //   expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
-  //   expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
-  // });
+    expect(element(by.css('#restartButton')).isPresent()).toBeTruthy();
+    expect(element(by.css('#backButton')).isPresent()).toBeTruthy();
+    expect(element(by.css('#playButton')).isPresent()).toBeTruthy();
+    expect(element(by.css('#forwardButton')).isPresent()).toBeTruthy();
+    expect(element(by.css('#endButton')).isPresent()).toBeTruthy();
+  });
 
   it('smp-man-gs: description displays properly', () => {
     page.navigateTo();
@@ -151,28 +151,28 @@ describe('workspace-project App', () => {
   });
 
 
-  // it('smp-man-gs: playback works', () => {
-  //   page.navigateTo();
-  //   element(by.id('algorithmsLink')).click();
-  //   element(by.id('smp-man-gs')).click();
-  //   element(by.id('smp-man-gs')).sendKeys(5);
-  //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+  it('smp-man-gs: playback works', () => {
+    page.navigateTo();
+    element(by.id('algorithmsLink')).click();
+    element(by.id('smp-man-gs')).click();
+    element(by.id('smp-man-gs')).sendKeys(5);
+    element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
     
-  //   expect(element(by.css('#stepCounter')).getText()).toContain("0");
-  //   element(by.id('forwardButton')).click();
-  //   expect(element(by.css('#stepCounter')).getText()).toContain("1");
-  // });
+    expect(element(by.css('#stepCounter')).getText()).toContain("0");
+    element(by.id('forwardButton')).click();
+    expect(element(by.css('#stepCounter')).getText()).toContain("1");
+  });
 
-  // it('smp-man-gs: pseudocode highlighting works', () => {
-  //   page.navigateTo();
-  //   element(by.id('algorithmsLink')).click();
-  //   element(by.id('smp-man-gs')).click();
-  //   element(by.id('smp-man-gs')).sendKeys(5);
-  //   element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
+  it('smp-man-gs: pseudocode highlighting works', () => {
+    page.navigateTo();
+    element(by.id('algorithmsLink')).click();
+    element(by.id('smp-man-gs')).click();
+    element(by.id('smp-man-gs')).sendKeys(5);
+    element(by.id('smp-man-gs')).sendKeys(protractor.Key.ENTER);
     
-  //   element(by.id('forwardButton')).click();
-  //   expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
-  // });
+    element(by.id('forwardButton')).click();
+    expect(element(by.css('#line2')).getCssValue("color")).toEqual("rgba(55, 255, 0, 1)");
+  });
 
   it('smp-man-gs: description changing works', () => {
     page.navigateTo();
