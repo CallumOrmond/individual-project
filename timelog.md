@@ -344,7 +344,7 @@ Coding, Finished SR
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 25 -->
 
-## Week 25 (6 Mar 2021 - 12 Mar 2021) - **23 hours**
+## Week 25 (6 Mar 2021 - 12 Mar 2021) - **34 hours**
 ### 6th Mar 2023 (Mon) 
 (8Hr) - Finilize Evaluation form, lauch evaluation, Fix launch bugs
 
@@ -355,9 +355,11 @@ Coding, Finished SR
 (7Hr) - Meeting, dissertation, testing
 
 ### 10th Mar
-(10000Hr)
+(9Hr) - Dissertaion - Testing, Coding - Tests
 
-ng test --include=src\app\algorithm-page\algorithms\algorithm-services\smp-room-irv\stable-room-irv.service.spec.ts
+### 11th Mar
+(2Hr) - Dissertation - Look over/Add-ons
+
 
 
 <hr>
@@ -365,7 +367,16 @@ ng test --include=src\app\algorithm-page\algorithms\algorithm-services\smp-room-
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 26 -->
 
 ## Week 26 (13 Mar 2021 - 19 Mar 2021) - **13 hours**
+## Took some time to work on other course work
 
+### 15th Mar 2023 (Wed)
+(6 Hr) - GitHub Wiki, Dissertaion
+
+### 16th Mar 
+(6 Hr) - Dissertaion, User Guide
+
+### 17th Mar 
+(6 Hr) - Dissertaion, User Guide, 
 
 <hr>
 
