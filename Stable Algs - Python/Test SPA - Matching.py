@@ -124,7 +124,14 @@ instance6 = [student_preferences6, supervisor_preferences6, project_supervisors6
 
 
 game = StudentAllocation.create_from_dictionaries(*instance6)
+game = game.solve()
+
+# for key, value in game.solve().items():
+#     print("(", key, ",-a", value, ")")
 
 
-for key, value in game.solve().items():
-    print("(", value, ",", key, ")")
+for index, value in enumerate(game.items()):
+    print(value)
+
+for key, value in student_preferences6.items():
+    print(key, "-", value)

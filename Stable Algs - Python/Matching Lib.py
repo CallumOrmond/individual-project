@@ -56,7 +56,6 @@ game = StudentAllocation.create_from_dictionaries(
 #     print(i)
 
 from matching.games import HospitalResident
-from matching.players import Hospital
 
 # hospitals = {"A" : [1, 2, 4 ,3],
 #              "B" : [3, 2, 4, 1],

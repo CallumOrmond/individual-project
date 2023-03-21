@@ -22,9 +22,7 @@ def input_to_usable(l):
 
         newlist = []
         s = str(value)
-        print(s)
         for char in s:
-            print(char)
             newlist.append(int(char))
 
         instance[index + 1] = newlist
@@ -41,6 +39,24 @@ instance = input_to_usable(f)
 
 
 game = StableRoommates.create_from_dictionary(instance)
+game = game.solve()
 
-for key, value in game.solve().items():
-    print("(", key, ",", value, ")")
+
+# for i in game.items():
+#     print(i)
+
+
+# print(instance)
+
+# for key, pref in instance.items():
+#     print(key, ":" ,pref)
+
+# for key, value in game.solve().items():
+#     print("(", key, ",", value, ")")
+
+
+# for i in range(1, len(instance.keys()) + 1):
+#     print(i , ":" ,instance.get(i), game.get(i))
+
+for index, value in enumerate(game.items()):
+    print(index + 1 , ":" ,instance.get(index + 1), "-" ,value)
