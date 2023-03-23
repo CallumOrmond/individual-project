@@ -12,12 +12,12 @@
             SPA
         -->
         
-        <h1 class="title center">{{ this.algorithmService.currentAlgorithm.name }}</h1>
+        <h1 id="title_main" class="title center">{{ this.algorithmService.currentAlgorithm.name }}</h1>
 
         <!-- STABLE MARRIAGE  -->
         <div *ngIf="this.algorithmService.currentAlgorithm.id == 'smp-man-gs'">   
           <div>       
-            <h2>Set Up</h2>
+            <h2 id="title">Set Up</h2>
             <p>
               The goal of the algorithm is to match two groups of people into pairs, where each agent has an ordered preference of 
               the agents within the other group. This is done with the Extended Gale-Shapley Algorithm, where a stable matching 
@@ -62,7 +62,7 @@
          <!-- STABLE MARRIAGE  -->
         <div *ngIf="this.algorithmService.currentAlgorithm.id == 'smp-man-egs'">   
           <div>       
-            <h2>Set Up</h2>
+            <h2 id="title">Set Up</h2>
             <p>
               The goal of the algorithm is to match two groups of people into pairs, where each agent has an ordered preference of 
               the agents within the other group. This is done with the Extended Gale-Shapley Algorithm, where a stable matching 
@@ -122,7 +122,7 @@
         <!-- HR/R -->
         <div *ngIf="this.algorithmService.currentAlgorithm.id == 'hr-resident-egs'">   
           <div>       
-            <h2>Set Up</h2>
+            <h2 id="title">Set Up</h2>
             <p>
               The goal of the algorithm is to match residents to hospitals, where each agent has an ordered preference of 
               the agents within the other group. This is done with the HR Extended Gale-Shapley Algorithm, where a stable matching 
@@ -183,7 +183,7 @@
         <!-- HR/H -->
         <div *ngIf="this.algorithmService.currentAlgorithm.id == 'hr-hospital-egs'">   
           <div>       
-            <h2>Set Up</h2>
+            <h2 id="title">Set Up</h2>
             <p>
               The goal of the algorithm is to match residents to hospitals, where each agent has an ordered preference of 
               the agents within the other group. This is done with the HR Extended Gale-Shapley Algorithm, where a stable matching 
@@ -213,7 +213,7 @@
               </p>
                 
               <p>
-                The algorithm works by selecting a hospital <strong>h</strong> that us undersubscribed and has a resident <strong>r</strong> on their preference ranking
+                The algorithm works by selecting a hospital <strong>h</strong> that is undersubscribed and has a resident <strong>r</strong> on their preference ranking
                 that they are not already assigned to. resident <strong>r</strong> is provisionally assigned to hospital <strong>h</strong>
                 that is not matched with a hospital, <strong>r</strong>
                 proposes to their highest-ranked hospital, if the hospital is at capacity, then
@@ -247,7 +247,7 @@
         <!-- STABLE ROOMMATES -->
         <div *ngIf="this.algorithmService.currentAlgorithm.id == 'smp-room-irv'">   
           <div>       
-            <h2>Set Up</h2>
+            <h2 id="title">Set Up</h2>
             <p>
               The goal of the algorithm is to match people into pairs, where each agent has an ordered preference of 
               the other agents within the group. This is done with Irving's Algorithm. Instances of the SR Problem
@@ -322,7 +322,7 @@
         <!-- SPA -->
         <div *ngIf="this.algorithmService.currentAlgorithm.id == 'spa-stu-egs'">   
           <div>       
-            <h2>Set Up</h2>
+            <h2 id="title">Set Up</h2>
             <p>
               The goal of the algorithm is to match students to projects, where each agent has an ordered preference of 
               the agents within the other group. Also, each project has a maximum number of students that can work on it 

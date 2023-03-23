@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CombineLatestSubscriber } from 'rxjs/internal/observable/combineLatest';
 import { AlgorithmRetrievalService } from 'src/app/algorithm-retrieval.service';
 import { MatchingAlgorithm } from '../../algorithms/abstract-classes/MatchingAlgorithm';
 import { AlgorithmData } from '../../algorithms/interfaces/AlgorithmData';

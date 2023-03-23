@@ -19,6 +19,129 @@ export abstract class StudentProjectAllocation extends MatchingAlgorithm {
         // console.log("StableRoomMates Class");
     }
 
+   
+
+    generatePreferences(): void {
+
+        let numberLectures = 0;
+        let projectLists = []
+        // Students - Group 1
+        for (let student of Array.from(this.group1Agents.values())) {
+            let agent1Rankings = Array.from((new Map(this.group2Agents)).values());
+            this.shuffle(agent1Rankings);
+            this.group1Agents.get(student.name).ranking = agent1Rankings;
+        }
+
+
+        // make lists that show each project that a lecturer runs
+        numberLectures = Math.ceil(this.numberOfGroup2Agents / 3)
+        projectLists = []
+        for (let i = 0 ; i < numberLectures ; i++) {
+            projectLists.push([])
+        }
+
+        // console.log("lists", projectLists)
+
+
+        // Projects - Group 2 
+        let count = 1
+        for (let project of Array.from(this.group2Agents.values())) {
+            let listIndex = Math.ceil(count / 3) - 1
+            projectLists[listIndex].push(project.name)
+            count++
+        }
+
+
+        // Lectures - Group 3 
+        this.algorithmSpecificData["lecturerRanking"] = []
+        count = 0
+        let lecturerRanking = []
+        for (let lecturer of Array.from(this.group3Agents.values())) {
+            let agent3Rankings = Array.from((new Map(this.group1Agents)).values());
+            this.shuffle(agent3Rankings);
+            this.group3Agents.get(lecturer.name).ranking = agent3Rankings;
+
+            lecturer.projects = projectLists[count]
+            
+            // add lecture ranking to algorithmspecData for use in canvas display 
+            lecturerRanking = []
+            for (let student of agent3Rankings) {
+                lecturerRanking.push(this.getLastCharacter(student.name)) 
+            }
+            this.algorithmSpecificData["lecturerRanking"].push(lecturerRanking)
+            count++
+        }
+
+        // this.algorithmSpecificData["lecturerRanking"][1] = ["{#EB2A2A3}", "{#53D26F3}"]
+
+        // console.log("this.algorithmSpecificData", this.algorithmSpecificData["lecturerRanking"])
+
+        this.algorithmSpecificData["lecturerProjects"] = projectLists
+
+        // console.log("SPA gen agents")
+        // console.log(this.group1Agents)
+        // console.log(this.group2Agents)
+        // console.log(this.group3Agents)
+    }
+    
+
+    populatePreferences(preferences: Map<String, Array<String>>): void {
+        // console.log("preferences", preferences);
+
+        this.generatePreferences()
+
+        let tempCopyList: Agent[];
+
+        // console.log("changes", Array.from(this.group1Agents.keys()))
+
+        for (let agent of Array.from(this.group1Agents.keys())) {
+            tempCopyList = [];
+            // console.log(agent, preferences.get(this.getLastCharacter(String(agent))))
+            // this.group1Agents.get(agent).ranking = preferences.get(this.getLastCharacter(String(agent)));
+            for (let preferenceAgent of preferences.get(this.getLastCharacter(String(agent)))) {
+
+                tempCopyList.push(this.group2Agents.get(this.group2Name + preferenceAgent));
+            }
+            this.group1Agents.get(agent).ranking = tempCopyList;
+        }
+
+        // console.log(this.group1Agents);
+        // console.log(this.group2Agents);
+        // console.log(this.group3Agents)
+
+    }
+
+
+    
+    printRanking(group) {
+
+        for (let agent of group.values()){
+            // console.log(agent.name)
+            let names = []
+            if (agent.ranking){
+                for (let agentInner of agent.ranking) {
+                    // console.log(agentInner.name)
+                    names.push(agentInner.name)
+                }
+            }
+            console.log(agent.name, names)
+            console.log("--------------")
+        }
+        console.log("")
+    }
+
+    
+
+
+    abstract match(): AlgorithmData;
+
+}
+
+
+
+
+ // test instances 
+
     // student1 = [["pA", "pC", "pE"],
     //             ["pA", "pD"],
     //             ["pA", "pB"],
@@ -34,23 +157,20 @@ export abstract class StudentProjectAllocation extends MatchingAlgorithm {
 
     // lectCap1 = [2, 2]
 
-    student1 = [["pC", "pA"],
-                ["pA", "pC"],
-                ["pD", "pB"],
-                ["pB", "pD"]]
+    // student1 = [["pC", "pA"],
+    //             ["pA", "pC"],
+    //             ["pD", "pB"],
+    //             ["pB", "pD"]]
                 
-    projCap1 = [1, 1, 1, 1]
+    // projCap1 = [1, 1, 1, 1]
 
-    lecture1 = [["s1", "s2", "s3", "s4"],
-                ["s2", "s1", "s4", "s3"]]
+    // lecture1 = [["s1", "s2", "s3", "s4"],
+    //             ["s2", "s1", "s4", "s3"]]
 
-    lectureProj1 = [["pA", "pB"],
-                    ["pC", "pD"]]
+    // lectureProj1 = [["pA", "pB"],
+    //                 ["pC", "pD"]]
 
-    lectCap1 = [2, 2]
-
-    
-
+    // lectCap1 = [2, 2]
 
 
     // generatePreferences(): void {
@@ -100,98 +220,3 @@ export abstract class StudentProjectAllocation extends MatchingAlgorithm {
 
 
     // }
-
-    generatePreferences(): void {
-
-        let numberLectures = 0;
-        let projectLists = []
-        // Students - Group 1
-        for (let student of Array.from(this.group1Agents.values())) {
-            let agent1Rankings = Array.from((new Map(this.group2Agents)).values());
-            this.shuffle(agent1Rankings);
-            this.group1Agents.get(student.name).ranking = agent1Rankings;
-        }
-
-
-        // make lists that show each project that a lecturer runs
-        numberLectures = Math.ceil(this.numberOfGroup2Agents / 3)
-        projectLists = []
-        for (let i = 0 ; i < numberLectures ; i++) {
-            projectLists.push([])
-        }
-
-        console.log("lists", projectLists)
-
-
-        // Projects - Group 2 
-        let count = 1
-        for (let project of Array.from(this.group2Agents.values())) {
-            let listIndex = Math.ceil(count / 3) - 1
-            projectLists[listIndex].push(project.name)
-            count++
-        }
-
-
-        // Lectures - Group 3 
-        this.algorithmSpecificData["lecturerRanking"] = []
-        count = 0
-        let lecturerRanking = []
-        for (let lecturer of Array.from(this.group3Agents.values())) {
-            let agent3Rankings = Array.from((new Map(this.group1Agents)).values());
-            this.shuffle(agent3Rankings);
-            this.group3Agents.get(lecturer.name).ranking = agent3Rankings;
-
-            lecturer.projects = projectLists[count]
-            
-            // add lecture ranking to algorithmspecData for use in canvas display 
-            lecturerRanking = []
-            for (let student of agent3Rankings) {
-                lecturerRanking.push(this.getLastCharacter(student.name)) 
-            }
-            this.algorithmSpecificData["lecturerRanking"].push(lecturerRanking)
-            count++
-        }
-
-        // this.algorithmSpecificData["lecturerRanking"][1] = ["{#EB2A2A3}", "{#53D26F3}"]
-
-        console.log("this.algorithmSpecificData", this.algorithmSpecificData["lecturerRanking"])
-
-        this.algorithmSpecificData["lecturerProjects"] = projectLists
-
-        console.log("SPA gen agents")
-        console.log(this.group1Agents)
-        console.log(this.group2Agents)
-        console.log(this.group3Agents)
-    }
-    
-
-    populatePreferences(preferences: Map<String, Array<String>>): void {
-        console.log("preferences", preferences);
-
-        this.generatePreferences()
-
-        let tempCopyList: Agent[];
-
-        console.log("changes", Array.from(this.group1Agents.keys()))
-
-        for (let agent of Array.from(this.group1Agents.keys())) {
-            tempCopyList = [];
-            console.log(agent, preferences.get(this.getLastCharacter(String(agent))))
-            // this.group1Agents.get(agent).ranking = preferences.get(this.getLastCharacter(String(agent)));
-            for (let preferenceAgent of preferences.get(this.getLastCharacter(String(agent)))) {
-                console.log()
-                tempCopyList.push(this.group2Agents.get(this.group2Name + preferenceAgent));
-            }
-            this.group1Agents.get(agent).ranking = tempCopyList;
-        }
-
-        console.log(this.group1Agents);
-        console.log(this.group2Agents);
-        console.log(this.group3Agents)
-
-    }
-
-
-    abstract match(): AlgorithmData;
-
-}

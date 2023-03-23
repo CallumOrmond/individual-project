@@ -38,19 +38,29 @@ export class AlgorithmCardComponent implements OnInit {
     Validators.max(9)
   ]);
 
+  SReven: boolean = true
 
-  evenOnly(event): boolean {
 
-    if (event.key == "enter"){
-      return true
+  evenOnly(event): void {
+
+    console.log("evenOnly", event, this.numberOfGroup1Agents.value)
+    if (this.numberOfGroup1Agents.value % 2 == 1) {
+      this.SReven = false
+    } else {
+      this.SReven = true
     }
-  
-    if (["2", "4", "6", "8", "1", "0"].includes(event.key)) {
-      return true
-    }
+  }
+
+
+  isValid(): boolean {
+
+    console.log("event", this.numberOfGroup1Agents)
 
     return false
+
   }
+
+
 
   // matcher = new MyErrorStateMatcher();
 
@@ -70,6 +80,7 @@ export class AlgorithmCardComponent implements OnInit {
       if (this.numberOfGroup1Agents.value % 2 == 1) {
         this.algorithmService.numberOfGroup1Agents = this.numberOfGroup1Agents.value + 1
 
+        
         if (this.algorithmService.numberOfGroup1Agents == 10){
           this.algorithmService.numberOfGroup1Agents = 8
         }

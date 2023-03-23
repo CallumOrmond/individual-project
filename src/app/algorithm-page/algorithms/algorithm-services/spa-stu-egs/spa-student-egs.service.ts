@@ -11,9 +11,9 @@ import { Student } from '../../interfaces/Student';
 })
 export class SpaStudentEgsService extends StudentProjectAllocation{
 
-  group1Name = "s";
-  group2Name = "p";
-  group3Name = "l"
+  group1Name = "student";
+  group2Name = "project";
+  group3Name = "lecturer"
 
   group1Agents: Map<String, Student> = new Map();
   group2Agents: Map<String, Project> = new Map();
@@ -93,6 +93,134 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  // USED FOR TESTING
+
+  // check if no unmatched pair like each other more than their current partners - redone for SPA
+  checkStability(allMatches: Map<String, Array<String>>): boolean {
+  let stability = true;
+
+  // this.printRanking(this.group1Agents)
+  // this.printRanking(this.group2Agents)
+  // this.printRanking(this.group3Agents)
+
+  // console.log("Check")
+
+  // for all students
+  for (let [name, student] of this.group1Agents.entries()) {
+      // let agentMatches = allMatches.get(agent);
+
+    // console.log(name)
+      
+    let studentMatchIndex = 0
+    if (student.match.length == 0) {
+      studentMatchIndex = student.ranking.length
+    } else {
+      studentMatchIndex = this.originalGroup1CurrentPreferences.get(this.getLastCharacter(student.name)).indexOf(this.getLastCharacter(student.match[0].name))
+    }
+
+    // current student information
+    let studentRanking = this.originalGroup1CurrentPreferences.get(this.getLastCharacter(student.name))
+
+    // console.log("Current student", student.name, student.match[0].name, studentMatchIndex)
+    
+    for (let i = studentMatchIndex - 1; i >= 0; i--) {
+
+      // get project + lecturer that is more preferred than the current
+      let betterProjectname = studentRanking[i]
+      let betterProject = this.group2Agents.get(this.group2Name + betterProjectname) 
+      
+      // console.log("A better Project:", betterProjectname)
+      let betterProjectLecturer = this.getProjectLecturer(betterProject)
+      // console.log("Project lecturer:", betterProjectLecturer.name)
+
+      // get lecturers ranking list to compare positions 
+      let lastMatchIndex = this.getLastMatchLecturer(betterProjectLecturer)
+      // console.log("lastMatchIndex:", lastMatchIndex)
+
+      let currentStudentIndex = this.getCurrentStudentIndex(student, betterProjectLecturer)
+      // console.log("currentStudentIndex:", currentStudentIndex)
+
+      // IF bother under subbed (a)
+      // console.log("(a)", betterProject.match.length , betterProject.capacity , this.getLecturerCurrentCapacity(betterProjectLecturer) , this.lecturerCapacity)
+      if (betterProject.match.length < betterProject.capacity && this.getLecturerCurrentCapacity(betterProjectLecturer) < this.lecturerCapacity){
+        stability = false
+      }
+
+      // project is under subbed + lecturer is full + ()
+      // console.log("(b)", betterProject.match.length, betterProject.capacity, this.getLecturerCurrentCapacity(betterProjectLecturer), this.lecturerCapacity)
+      if (betterProject.match.length < betterProject.capacity && this.getLecturerCurrentCapacity(betterProjectLecturer) == this.lecturerCapacity) {
+        // if student is mathced to lecturer or student is preferred over worst matched student 
+        if (betterProjectLecturer.projects.includes(student.match[0].name) || currentStudentIndex < lastMatchIndex) {
+          stability = false
+          console.log("FALSE a")
+        }
+      }
+
+      // project is full + student is preferred over worst ranked person on project
+      // console.log("(c)", betterProject.match.length, betterProject.capacity, currentStudentIndex, this.getLastMatchProject(betterProject))
+      // console.log(student.name, betterProject.name, betterProject.match)
+      if (betterProject.match.length == betterProject.capacity && currentStudentIndex < this.getLastMatchProject(betterProject)) {
+        stability = false
+        console.log("FALSE b")
+      }
+
+
+      if (currentStudentIndex < lastMatchIndex) {
+          stability = false;
+          console.log("FALSE c")
+      }    
+    }
+      
+  }
+  return stability;
+}
+
+  // returns index of worst ranked studnet for a project according to the lecture within the lecturers preference list
+  getLastMatchProject(project: Project) {
+
+    let projectLecturer = this.getProjectLecturer(project)
+    let worstIndex = 0
+    let worstStudent = null
+
+
+    for (let student of project.match){
+
+      let index = projectLecturer.ranking.indexOf(student)
+
+      if (index > worstIndex) {
+        worstIndex = index
+        worstStudent = student
+      }
+    }
+
+    return worstIndex 
+  }
+
+  // returns the index of the least preferred match for a lecturer
+  getLastMatchLecturer(lecturer: Lecturer) {
+
+    let index = null
+    // for each student in ranking 
+    for (let i = 0; i < lecturer.ranking.length; i++){
+      // for each project that they host 
+      let student = lecturer.ranking[i]
+      for (let p = 0; p < lecturer.projects.length; p++){
+        let projectName = lecturer.projects[p]
+        let project = this.group2Agents.get(projectName)
+
+        if (project.match.includes(student)) {
+          index = i
+        }
+      }
+     
+    return index
+    }
+  }
+
+  getCurrentStudentIndex(student: Student, lecturer: Lecturer){
+    return lecturer.ranking.indexOf(student)
   }
 
   
@@ -326,7 +454,7 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
 
   match(): AlgorithmData {
       
-    console.log("Here is SPA")
+    // console.log("Here is SPA")
 
     let redLine = []
     let greenLine = []
@@ -480,6 +608,7 @@ export class SpaStudentEgsService extends StudentProjectAllocation{
 }
 
 
+// Testing Set uo
 
     // let s1 = this.group1Agents.get("s1")
     // let s2 = this.group1Agents.get("s2")

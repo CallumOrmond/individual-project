@@ -9,7 +9,7 @@ import { Hospital } from '../../interfaces/Hospital';
 @Injectable({
   providedIn: 'root'
 })
-export class HrHospitalEgsService extends GaleShapley{
+export class HrHospitalEgsService extends ExtendedGaleShapley{
 
   group1Name = "resident";
   group2Name = "hospital";

@@ -59,9 +59,47 @@ export class StableRoomIrvService extends StableRoomMates {
 
   }
 
+
   constructor() {  
     super();
   }
+
+ 
+   // check if no unmatched pair like each other more than their current partners
+   checkStability(allMatches: Map<String, Array<String>>): boolean {
+    let stability = true;
+
+    // for all women
+    for (let [name, person] of this.group1Agents) {
+
+      // if agent has matches
+      if (person.lastProposed) {
+
+        
+        let personMatchIndex = this.originalGroup1CurrentPreferences.get(this.getLastCharacter(person.name)).indexOf(this.getLastCharacter(person.lastProposed.name))
+        let personRanking = this.originalGroup1CurrentPreferences.get(this.getLastCharacter(person.name))
+
+        for (let i = personMatchIndex - 1; i >= 0; i--) {
+            
+          // get better person
+          let betterPersonName = Number(personRanking[i]) 
+          let betterPerson = this.group1Agents.get(this.group1Name + String(betterPersonName))
+
+          // current person index within better persons ranking 
+          let currentPersonIndex = this.findPositionInOriginalMatches1Group(betterPerson, person)
+
+          // betterPerson matchPosition
+          let matchPosition = this.findPositionInOriginalMatches1Group(betterPerson, betterPerson.lastProposed)
+
+          if (currentPersonIndex < matchPosition) {
+              stability = false;         
+          }  
+        }
+      }  
+    }
+    
+    return stability;
+}
 
 
 

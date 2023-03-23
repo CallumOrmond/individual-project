@@ -316,8 +316,8 @@ Coding, Finished SR
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 24 -->
 
-## Week 24 (27 Mar 2021 - 5 Mar 2021) - **0 hours**
-### 27 Feb 2023 (Mon) - 10.5 hours
+## Week 24 (27 Mar 2021 - 5 Mar 2021) - **43 hours**
+### 27 Feb 2023 (Mon)
 (11Hr) - Coding - SPA implementaion + Viz
 
 ### 28th Feb  
@@ -336,45 +336,65 @@ Coding, Finished SR
 (5Hr) - More Final code changes, test fixing, deployment
 
 ### 5th Mar
-() - 
+(8 Hr) - Fixing GitHub Pages, Dissertation
+
 
 
 <hr>
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 25 -->
 
-## Week 25 (6 Mar 2021 - 12 Mar 2021) - **0 hours**
+## Week 25 (6 Mar 2021 - 12 Mar 2021) - **34 hours**
+### 6th Mar 2023 (Mon) 
+(8Hr) - Finilize Evaluation form, lauch evaluation, Fix launch bugs
+
+### 7th Mar
+(8Hr) - Dissertation
+
+### 9th Mar
+(7Hr) - Meeting, dissertation, testing
+
+### 10th Mar
+(9Hr) - Dissertaion - Testing, Coding - Tests
+
+### 11th Mar
+(2Hr) - Dissertation - Look over/Add-ons
+
+
 
 <hr>
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 26 -->
 
-## Week 26 (13 Mar 2021 - 19 Mar 2021) - **13 hours**
+## Week 26 (13 Mar 2021 - 19 Mar 2021) - **25 hours**
+## Took some time to work on other course work
 
+### 15th Mar 2023 (Wed)
+(6 Hr) - GitHub Wiki, Dissertaion
+
+### 16th Mar 
+(6 Hr) - Dissertaion, User Guide
+
+### 17th Mar 
+(6 Hr) - Dissertaion, User Guide
+
+### 19th Mar
+(7Hr) - Dissertaion
 
 <hr>
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 27 -->
 
-## Week 27 (20 Mar 2021 - 26 Mar 2021) - **55 hours**
+## Week 27 (20 Mar 2021 - 26 Mar 2021) - **20 hours**
 
+### 20th Mar 2023 (Mon)
+(9 Hr) - Dissertaion, Meeting
 
-<hr>
+### 21st Mar
+(11 Hr) - Dissertaion, SPA Tests
 
-<!-- ------------------------------------------------------------------------------------------------------- WEEK 28 -->
+### 22nd Mar 
+(10 Hr) - Presentation, Final Checks Dissertation 
 
-## Week 28 (28 Mar 2021 - 2 Apr 2021) - **38 hours**
-
-
-<hr>
-
-<!-- ------------------------------------------------------------------------------------------------------- WEEK 29 -->
-
-## Week 29 (3 Apr 2021 - 9 Apr 2021) - **36 hours**
-
-<hr>
-
-<!-- ------------------------------------------------------------------------------------------------------- WEEK 30: FINAL WEEK -->
-
-## Week 30 (10 Apr 2021 - 17 Apr 2021) - **66.5 hours**
-
+### 23rd Mar 
+(10 Hr) - Presentation, Final Checks Dissertation, prep to submit

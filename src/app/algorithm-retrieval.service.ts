@@ -185,8 +185,8 @@ export class AlgorithmRetrievalService {
         code: [
           "Set each hospital and resident to be completely free",
           "While some hospital h is undersubscibed, and has a resident on their preference list",
-          "\t r := first resident on h's prefernace list not assigned to h",
-          "\t if r is assigned to another hospital h'",
+          "\tr := first resident on h's prefernace list not assigned to h",
+          "\tif r is assigned to another hospital h'",
           "\t\t unassign r and h'",
           
           "\t provisionally assign r to h",
@@ -238,8 +238,8 @@ export class AlgorithmRetrievalService {
         code: [
           "Set each person to be free",
           "While some person p is free (not assigned to someone)",
-          "\t if person p has a empty preference list",
-          "\t\t end - no stable matching",
+          "\tif person p has a empty preference list",
+          "\t\tend - no stable matching",
 
           "\t person b := first preference on p's list",
            "\t assign p to b",
@@ -318,7 +318,7 @@ export class AlgorithmRetrievalService {
           "set each student, lecturer, and project to be free",
           "while some student s is free:",
           "\t p = next most prefered project on s's list",
-          "\t l = lecturer who offers p",
+          "\tl = lecturer who offers p",
           "\t provisionally assign s to p",
           "\t if p is over-subscribed:",
           "\t\t Sw = worst student assigned to p",
