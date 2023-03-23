@@ -366,7 +366,7 @@ Coding, Finished SR
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 26 -->
 
-## Week 26 (13 Mar 2021 - 19 Mar 2021) - **13 hours**
+## Week 26 (13 Mar 2021 - 19 Mar 2021) - **25 hours**
 ## Took some time to work on other course work
 
 ### 15th Mar 2023 (Wed)
@@ -376,31 +376,25 @@ Coding, Finished SR
 (6 Hr) - Dissertaion, User Guide
 
 ### 17th Mar 
-(6 Hr) - Dissertaion, User Guide, 
+(6 Hr) - Dissertaion, User Guide
+
+### 19th Mar
+(7Hr) - Dissertaion
 
 <hr>
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 27 -->
 
-## Week 27 (20 Mar 2021 - 26 Mar 2021) - **55 hours**
+## Week 27 (20 Mar 2021 - 26 Mar 2021) - **20 hours**
 
+### 20th Mar 2023 (Mon)
+(9 Hr) - Dissertaion, Meeting
 
-<hr>
+### 21st Mar
+(11 Hr) - Dissertaion, SPA Tests
 
-<!-- ------------------------------------------------------------------------------------------------------- WEEK 28 -->
+### 22nd Mar 
+(10 Hr) - Presentation, Final Checks Dissertation 
 
-## Week 28 (28 Mar 2021 - 2 Apr 2021) - **38 hours**
-
-
-<hr>
-
-<!-- ------------------------------------------------------------------------------------------------------- WEEK 29 -->
-
-## Week 29 (3 Apr 2021 - 9 Apr 2021) - **36 hours**
-
-<hr>
-
-<!-- ------------------------------------------------------------------------------------------------------- WEEK 30: FINAL WEEK -->
-
-## Week 30 (10 Apr 2021 - 17 Apr 2021) - **66.5 hours**
-
+### 23rd Mar 
+(10 Hr) - Presentation, Final Checks Dissertation, prep to submit
