@@ -12,12 +12,12 @@
 
 <hr>
 
-## Total Time Spent: ****
+## Total Time Spent: **296.5 Hrs**
 
 <br><br>
 
 # Semester 1 - 64.5hours
-# Semester 2 - ... hours
+# Semester 2 - 232 hours
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 1 -->
 
@@ -217,7 +217,7 @@ Coding, Finished SR
 
 <br><br>
 
-# Semester 2 - (total) hours
+# Semester 2 - (232) hours
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 17 -->
 
@@ -385,7 +385,7 @@ Coding, Finished SR
 
 <!-- ------------------------------------------------------------------------------------------------------- WEEK 27 -->
 
-## Week 27 (20 Mar 2021 - 26 Mar 2021) - **20 hours**
+## Week 27 (20 Mar 2021 - 26 Mar 2021) - **40 hours**
 
 ### 20th Mar 2023 (Mon)
 (9 Hr) - Dissertaion, Meeting
@@ -397,4 +397,4 @@ Coding, Finished SR
 (10 Hr) - Presentation, Final Checks Dissertation 
 
 ### 23rd Mar 
-(10 Hr) - Presentation, Final Checks Dissertation, prep to submit
+(10 Hr) - Presentation, Final Checks Dissertation, prep to submit, Submitting 
